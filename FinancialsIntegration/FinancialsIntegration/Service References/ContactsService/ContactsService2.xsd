@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.datacom.co.nz/IRIS/Contacts/" elementFormDefault="qualified" targetNamespace="http://www.datacom.co.nz/IRIS/Contacts/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetContactDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ContactID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetContactDetailsResult" nillable="true" type="tns:ContactDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ContactDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactAddresses" nillable="true" type="tns:ContactAddresses" />
+      <xs:element minOccurs="0" name="ContactEmails" nillable="true" type="tns:ContactEmails" />
+      <xs:element minOccurs="0" name="ContactID" type="xs:long" />
+      <xs:element minOccurs="0" name="ContactNames" nillable="true" type="tns:ContactNames" />
+      <xs:element minOccurs="0" name="ContactOrganisationDetails" nillable="true" type="tns:ContactOrganisationDetails" />
+      <xs:element minOccurs="0" name="ContactPersonDetails" nillable="true" type="tns:ContactPersonDetails" />
+      <xs:element minOccurs="0" name="ContactPhoneNumbers" nillable="true" type="tns:ContactPhoneNumbers" />
+      <xs:element minOccurs="0" name="ContactType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactWebsites" nillable="true" type="tns:ContactWebsites" />
+      <xs:element minOccurs="0" name="FINCustomerCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HistoricID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDuplicate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Review" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactDetails" nillable="true" type="tns:ContactDetails" />
+  <xs:complexType name="ContactAddresses">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactAddress" nillable="true" type="tns:ContactAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactAddresses" nillable="true" type="tns:ContactAddresses" />
+  <xs:complexType name="ContactAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactAddressID" type="xs:long" />
+      <xs:element minOccurs="0" name="ContactAddressType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactDeliveryAddress" nillable="true" type="tns:ContactDeliveryAddress" />
+      <xs:element minOccurs="0" name="ContactOverseasAddress" nillable="true" type="tns:ContactOverseasAddress" />
+      <xs:element minOccurs="0" name="ContactUrbanRuralAddress" nillable="true" type="tns:ContactUrbanRuralAddress" />
+      <xs:element minOccurs="0" name="Invalid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsBilling" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCareOf" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCurrent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPostal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Prologue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactAddress" nillable="true" type="tns:ContactAddress" />
+  <xs:complexType name="ContactDeliveryAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoxLobby" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryAddressType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryServiceIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TownCity" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactDeliveryAddress" nillable="true" type="tns:ContactDeliveryAddress" />
+  <xs:complexType name="ContactOverseasAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactOverseasAddress" nillable="true" type="tns:ContactOverseasAddress" />
+  <xs:complexType name="ContactUrbanRuralAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BuildingName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FloorIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FloorType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RuralDeliveryIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetAlpha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetDirection" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetNumber" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StreetType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Suburb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TownCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactUrbanRuralAddress" nillable="true" type="tns:ContactUrbanRuralAddress" />
+  <xs:complexType name="ContactEmails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactEmail" nillable="true" type="tns:ContactEmail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactEmails" nillable="true" type="tns:ContactEmails" />
+  <xs:complexType name="ContactEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactEmailID" type="xs:long" />
+      <xs:element minOccurs="0" name="Invalid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsBilling" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCurrent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPreferred" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactEmail" nillable="true" type="tns:ContactEmail" />
+  <xs:complexType name="ContactNames">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactName" nillable="true" type="tns:ContactName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactNames" nillable="true" type="tns:ContactNames" />
+  <xs:complexType name="ContactName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactJFCName" nillable="true" type="tns:ContactJFCName" />
+      <xs:element minOccurs="0" name="ContactNameID" type="xs:long" />
+      <xs:element minOccurs="0" name="ContactOrganisationName" nillable="true" type="tns:ContactOrganisationName" />
+      <xs:element minOccurs="0" name="ContactPersonName" nillable="true" type="tns:ContactPersonName" />
+      <xs:element minOccurs="0" name="IsBilling" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPreferred" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NameType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactName" nillable="true" type="tns:ContactName" />
+  <xs:complexType name="ContactJFCName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="JFCName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactJFCName" nillable="true" type="tns:ContactJFCName" />
+  <xs:complexType name="ContactOrganisationName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrganisationDivisionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactOrganisationName" nillable="true" type="tns:ContactOrganisationName" />
+  <xs:complexType name="ContactPersonName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PersonFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonMiddleNames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactPersonName" nillable="true" type="tns:ContactPersonName" />
+  <xs:complexType name="ContactOrganisationDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrganisationCompanyNumber" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="OrganisationStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactOrganisationDetails" nillable="true" type="tns:ContactOrganisationDetails" />
+  <xs:complexType name="ContactPersonDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConfidentialReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonDateOfBirth" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PersonGender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonIsDeceased" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WarningComments" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactPersonDetails" nillable="true" type="tns:ContactPersonDetails" />
+  <xs:complexType name="ContactPhoneNumbers">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactPhoneNumber" nillable="true" type="tns:ContactPhoneNumber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactPhoneNumbers" nillable="true" type="tns:ContactPhoneNumbers" />
+  <xs:complexType name="ContactPhoneNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactPhoneNumberID" type="xs:long" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPreferred" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactPhoneNumber" nillable="true" type="tns:ContactPhoneNumber" />
+  <xs:complexType name="ContactWebsites">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactWebsite" nillable="true" type="tns:ContactWebsite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactWebsites" nillable="true" type="tns:ContactWebsites" />
+  <xs:complexType name="ContactWebsite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactWebsiteID" type="xs:long" />
+      <xs:element minOccurs="0" name="IsPreferred" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactWebsite" nillable="true" type="tns:ContactWebsite" />
+  <xs:element name="GetChangedContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SinceDateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChangedContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetChangedContactsResult" nillable="true" type="tns:ContactsCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ContactsCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChangedContact" nillable="true" type="tns:ChangedContact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactsCollection" nillable="true" type="tns:ContactsCollection" />
+  <xs:complexType name="ChangedContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactDetails" nillable="true" type="tns:ContactDetails" />
+      <xs:element minOccurs="0" name="IsNew" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChangedContact" nillable="true" type="tns:ChangedContact" />
+</xs:schema>

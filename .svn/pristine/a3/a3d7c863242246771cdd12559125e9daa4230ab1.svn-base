@@ -1,0 +1,94 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+using System.Xml.Serialization;
+using System.Xml;
+
+using System.IO;
+using System.ServiceModel;
+using System.Configuration;
+//using HRC.PowerBuilderContacts.BL;
+using HRC.OzoneContacts.BL;
+using HRC.Contacts.BL;
+using Ozone = OzoneHarness.OzoneServiceClient;
+
+namespace OzoneHarness
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+                
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string token = null;
+            foreach (OzoneQueueItem queueItem in OzoneContact.LoadPostXml())
+            {
+                Ozone.OzoneSoapClient client = new Ozone.OzoneSoapClient();
+                try
+                {
+                    token = string.IsNullOrEmpty(token) ? client.AuthenticateWindows(ConfigurationManager.AppSettings["OzoneWebServiceURL"]) : token;
+                    string xml = client.PostData(token, queueItem.Message);
+                    OzonePostResult postResult = OzoneContact.ProcessPostResult(xml);
+                    postResult.Save(xml, queueItem.Id);
+                }
+                catch (FaultException)
+                {
+                    //error verbosity to be determined (ie email or silent exception handling)                    
+                }
+                finally
+                {
+                    if (client.State == CommunicationState.Faulted)
+                    {
+                        client.Abort();
+                    }
+                    else
+                    {
+                        client.Close();
+                    }
+                }
+            }
+        }
+
+        private void btnTestContact_Click(object sender, EventArgs e)
+        {
+
+            string token = null;
+
+                Ozone.OzoneSoapClient client = new Ozone.OzoneSoapClient();
+                try
+                {
+                    token = string.IsNullOrEmpty(token) ? client.AuthenticateWindows(ConfigurationManager.AppSettings["OzoneWebServiceURL"]) : token;
+                    string xml = client.PostData(token, txtXml.Text);
+                    txtResult.Text = xml;
+                   
+                }
+                catch (FaultException)
+                {
+                    //error verbosity to be determined (ie email or silent exception handling)                    
+                }
+                finally
+                {
+                    if (client.State == CommunicationState.Faulted)
+                    {
+                        client.Abort();
+                    }
+                    else
+                    {
+                        client.Close();
+                    }
+                }
+
+
+        }        
+    }
+}
+

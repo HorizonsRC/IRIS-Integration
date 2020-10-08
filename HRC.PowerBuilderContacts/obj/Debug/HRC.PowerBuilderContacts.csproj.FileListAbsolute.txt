@@ -1,0 +1,43 @@
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.csprojResolveAssemblyReference.cache
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.pdb

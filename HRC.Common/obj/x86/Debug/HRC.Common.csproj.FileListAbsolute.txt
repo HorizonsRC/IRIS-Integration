@@ -1,0 +1,14 @@
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\bin\x86\Debug\HRC.Common.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\bin\x86\Debug\HRC.Common.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.csprojResolveAssemblyReference.cache
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.Properties.Resources.resources
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.csproj.GenerateResource.Cache
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\bin\x86\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\bin\x86\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.Properties.Resources.resources
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.csproj.GenerateResource.Cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\x86\Debug\HRC.Common.pdb

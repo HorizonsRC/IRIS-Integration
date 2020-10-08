@@ -1,0 +1,26 @@
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\Harness.exe.config
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\Harness.exe.config
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\Harness.exe
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\Harness.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.Form1.resources
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.Properties.Resources.resources
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.csproj.GenerateResource.Cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.exe
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\Harness.exe.config
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.exe
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\Harness.exe
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\Harness.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.Form1.resources
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.Properties.Resources.resources
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.csproj.GenerateResource.Cache
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\Harness.exe.config
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.exe
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.pdb

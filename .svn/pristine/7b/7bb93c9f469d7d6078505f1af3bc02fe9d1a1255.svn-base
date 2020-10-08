@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<configuration>
+
+  <connectionStrings>
+    <add name="HRCFrameworkConnectionString"  connectionString="Data Source=devdbserver;Initial Catalog=Enhancements;Integrated Security=true;" providerName="System.Data.SqlClient"/>
+    <add name="LoggingConnectionString"  connectionString="Data Source=devdbserver;Initial Catalog=Enhancements;Integrated Security=true;" providerName="System.Data.SqlClient"/>
+    <add name="IRISConnectionString"  connectionString="Data Source=irisdmdb;Initial Catalog=IRISDM;Integrated Security=false;User Id=iris_user;password=iris_user;" providerName="System.Data.SqlClient"/>
+    
+  </connectionStrings>
+
+  <appSettings>
+    <add key="IrisBasePathPath" value="\\file\scanner\IRIS\" />
+    <!--<add key="IrisBasePathPath" value="\\file\appdata\IRIS_Test\" />-->
+  </appSettings>
+
+
+  <startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/></startup></configuration>

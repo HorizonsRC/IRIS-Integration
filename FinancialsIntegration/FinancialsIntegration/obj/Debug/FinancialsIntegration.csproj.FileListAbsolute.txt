@@ -1,0 +1,22 @@
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\FinancialsIntegration.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\FinancialsIntegration.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.IRIS.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.IRIS.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\FinancialsIntegration.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\FinancialsIntegration.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.IRIS.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.IRIS.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.pdb

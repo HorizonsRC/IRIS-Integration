@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Net;
+
+namespace HRC.Common.Data
+{
+    public class AppRoleConnection
+    {
+        public string ConnectionString { get; set; }
+
+        public NetworkCredential Credential { get; set; }
+    }
+}

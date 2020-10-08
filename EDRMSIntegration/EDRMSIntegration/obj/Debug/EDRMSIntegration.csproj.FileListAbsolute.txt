@@ -1,0 +1,19 @@
+\\irisdm\d$\HRC\EDRMS\bin\Web.config
+\\irisdm\d$\HRC\EDRMS\bin\Web.Debug.config
+\\irisdm\d$\HRC\EDRMS\bin\Web.Release.config
+\\irisdm\d$\HRC\EDRMS\bin\EDRMSIntegration.dll.config
+\\irisdm\d$\HRC\EDRMS\bin\EDRMSIntegration.dll
+\\irisdm\d$\HRC\EDRMS\bin\EDRMSIntegration.pdb
+D:\Documents\Source Code\GitHub\IRIS\WebServices\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csprojResolveAssemblyReference.cache
+D:\Documents\Source Code\GitHub\IRIS\WebServices\EDRMSIntegration\EDRMSIntegration\obj\Debug\Interop.DSOFile.dll
+D:\Documents\Source Code\GitHub\IRIS\WebServices\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.ResolveComReference.cache
+D:\Documents\Source Code\GitHub\IRIS\WebServices\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.dll
+D:\Documents\Source Code\GitHub\IRIS\WebServices\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csprojAssemblyReference.cache
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.Properties.Resources.resources
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.GenerateResource.cache
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.CoreCompileInputs.cache
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\Interop.DSOFile.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.ResolveComReference.cache

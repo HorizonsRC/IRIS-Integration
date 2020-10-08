@@ -1,0 +1,28 @@
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.Properties.Resources.resources
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.GenerateResource.Cache
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.Properties.Resources.resources
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.GenerateResource.Cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.Properties.Resources.resources
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.GenerateResource.Cache
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.Properties.Resources.resources
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.GenerateResource.Cache
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csprojAssemblyReference.cache
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.CoreCompileInputs.cache

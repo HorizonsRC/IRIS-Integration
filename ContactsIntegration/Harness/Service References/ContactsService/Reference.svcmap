@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7ba899aa-3cbf-4fd1-95f5-6c73e138a4ad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>true</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://irisbase.horizons.govt.nz/serviceinterface/ContactsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContactsService.disco" MetadataType="Disco" ID="a2f31a5e-40f0-42f6-92f5-3945e0c0308b" SourceId="1" SourceUrl="http://irisbase.horizons.govt.nz/ServiceInterface/ContactsService.svc?disco" />
+    <MetadataFile FileName="ContactsService.wsdl" MetadataType="Wsdl" ID="b63fd33f-82d8-4d24-97cc-d8fb79e4d2d7" SourceId="1" SourceUrl="http://irisbase.horizons.govt.nz/ServiceInterface/ContactsService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ContactsService.xsd" MetadataType="Schema" ID="ed1fdb93-824b-40ce-aa8d-59cd0d9b0966" SourceId="1" SourceUrl="http://irisbase.horizons.govt.nz/ServiceInterface/ContactsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContactsService1.xsd" MetadataType="Schema" ID="d2946477-3ff6-41ea-bede-b20ea63d1cf4" SourceId="1" SourceUrl="http://irisbase.horizons.govt.nz/ServiceInterface/ContactsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContactsService2.xsd" MetadataType="Schema" ID="e804b85b-5c0f-47f9-a3a3-3db94a6af886" SourceId="1" SourceUrl="http://irisbase.horizons.govt.nz/ServiceInterface/ContactsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContactsService1.wsdl" MetadataType="Wsdl" ID="a05b69fd-e3fb-4f9e-ae0d-ac1608132f1f" SourceId="1" SourceUrl="http://irisbase.horizons.govt.nz/ServiceInterface/ContactsService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

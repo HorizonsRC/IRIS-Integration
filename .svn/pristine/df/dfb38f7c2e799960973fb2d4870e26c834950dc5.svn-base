@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\iristest\d$\HRC\Contacts" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="False">
+    <file relUrl="bin/HRC.Contacts.dll" publishTime="07/08/2014 16:18:14" />
+    <file relUrl="ContactsIntegrationService.svc" publishTime="11/29/2013 11:52:32" />
+    <file relUrl="bin/HRC.Framework.dll" publishTime="07/08/2014 16:18:14" />
+    <file relUrl="bin/HRC.PowerBuilderContacts.pdb" publishTime="07/08/2014 16:18:15" />
+    <file relUrl="bin/HRC.Common.pdb" publishTime="07/08/2014 16:18:14" />
+    <file relUrl="bin/HRC.Framework.pdb" publishTime="07/08/2014 16:18:14" />
+    <file relUrl="bin/HRC.OzoneContacts.dll" publishTime="07/08/2014 16:18:15" />
+    <file relUrl="bin/ContactsIntegration.pdb" publishTime="07/08/2014 16:18:15" />
+    <file relUrl="bin/HRC.OzoneContacts.pdb" publishTime="07/08/2014 16:18:15" />
+    <file relUrl="bin/HRC.Common.dll" publishTime="07/08/2014 16:18:14" />
+    <file relUrl="bin/HRC.PowerBuilderContacts.dll" publishTime="07/08/2014 16:18:15" />
+    <file relUrl="ProcessContactsQueue.aspx" publishTime="04/11/2014 10:58:38" />
+    <file relUrl="BulkLoadService.svc" publishTime="05/08/2014 14:34:23" />
+    <file relUrl="bin/HRC.Contacts.pdb" publishTime="07/08/2014 16:18:14" />
+    <file relUrl="ContactsQueue.asmx" publishTime="04/11/2014 10:53:43" />
+    <file relUrl="bin/ContactsIntegration.dll" publishTime="07/08/2014 16:18:15" />
+  </publishProfile>
+  <publishProfile publishUrl="C:\Deploy\ContactsIntegration" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="local" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="False">
+    <file relUrl="bin/HRC.Contacts.dll" publishTime="05/02/2014 10:09:34" />
+    <file relUrl="ContactsIntegrationService.svc" publishTime="11/29/2013 11:52:32" />
+    <file relUrl="bin/HRC.Framework.dll" publishTime="05/02/2014 10:09:34" />
+    <file relUrl="bin/HRC.PowerBuilderContacts.pdb" publishTime="05/02/2014 10:09:34" />
+    <file relUrl="bin/HRC.Common.pdb" publishTime="05/02/2014 10:09:33" />
+    <file relUrl="bin/HRC.Framework.pdb" publishTime="05/02/2014 10:09:34" />
+    <file relUrl="bin/HRC.OzoneContacts.dll" publishTime="05/08/2014 10:59:32" />
+    <file relUrl="bin/ContactsIntegration.pdb" publishTime="05/08/2014 11:44:02" />
+    <file relUrl="bin/HRC.OzoneContacts.pdb" publishTime="05/08/2014 10:59:32" />
+    <file relUrl="bin/HRC.Common.dll" publishTime="05/02/2014 10:09:33" />
+    <file relUrl="bin/HRC.PowerBuilderContacts.dll" publishTime="05/02/2014 10:09:34" />
+    <file relUrl="ProcessContactsQueue.aspx" publishTime="04/11/2014 10:58:38" />
+    <file relUrl="bin/HRC.Contacts.pdb" publishTime="05/02/2014 10:09:34" />
+    <file relUrl="ContactsQueue.asmx" publishTime="04/11/2014 10:53:43" />
+    <file relUrl="bin/ContactsIntegration.dll" publishTime="05/08/2014 11:44:02" />
+  </publishProfile>
+  <publishProfile publishUrl="\\irisdm\d$\HRC\Contacts" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Release" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/HRC.Contacts.dll" publishTime="07/29/2014 21:58:22" />
+    <file relUrl="ContactsIntegrationService.svc" publishTime="07/21/2014 09:36:56" />
+    <file relUrl="bin/HRC.Framework.dll" publishTime="07/29/2014 21:58:22" />
+    <file relUrl="bin/HRC.PowerBuilderContacts.pdb" publishTime="07/29/2014 21:58:29" />
+    <file relUrl="bin/HRC.Common.pdb" publishTime="07/29/2014 21:58:22" />
+    <file relUrl="bin/HRC.Framework.pdb" publishTime="07/29/2014 21:58:22" />
+    <file relUrl="bin/HRC.OzoneContacts.dll" publishTime="07/29/2014 22:35:17" />
+    <file relUrl="bin/ContactsIntegration.pdb" publishTime="07/29/2014 22:35:17" />
+    <file relUrl="bin/HRC.OzoneContacts.pdb" publishTime="07/29/2014 22:35:16" />
+    <file relUrl="bin/HRC.Common.dll" publishTime="07/29/2014 21:58:22" />
+    <file relUrl="bin/HRC.PowerBuilderContacts.dll" publishTime="07/29/2014 21:58:29" />
+    <file relUrl="ProcessContactsQueue.aspx" publishTime="07/21/2014 09:36:56" />
+    <file relUrl="BulkLoadService.svc" publishTime="07/21/2014 09:36:57" />
+    <file relUrl="bin/HRC.Contacts.pdb" publishTime="07/29/2014 21:58:22" />
+    <file relUrl="ContactsQueue.asmx" publishTime="07/21/2014 09:36:56" />
+    <file relUrl="bin/ContactsIntegration.dll" publishTime="07/29/2014 22:35:17" />
+  </publishProfile>
+</publishData>

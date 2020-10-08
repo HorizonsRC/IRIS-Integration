@@ -1,0 +1,48 @@
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csprojResolveAssemblyReference.cache
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csprojResolveAssemblyReference.cache
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.pdb

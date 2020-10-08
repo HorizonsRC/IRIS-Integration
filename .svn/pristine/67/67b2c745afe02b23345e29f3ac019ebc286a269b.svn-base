@@ -1,0 +1,725 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data.SqlClient;
+using System.Data;
+using HRC.Common;
+using HRC.Common.Data;
+using HRC.Contacts.BL;
+using HRC.PowerBuilderContacts.BL;
+using HRC.Framework.BL;
+
+namespace HRC.PowerBuilderContacts.DL
+{
+    internal class PBContactManager
+    {
+        private static string ContactPersonFields = @"{0}{1}Agent_Id, {0}{1}Surname, {0}{1}PhoName, {0}{1}Initials, {0}{1}First_Names, {0}{1}Known_By, 
+            {0}{1}Title, {0}{1}Postal_Name, {0}{1}Gender, {0}{1}Comments, {0}{1}Active_Flag, {0}{1}Review_Flag";
+
+        private static string ContactAddressFields = "{0}{1}*";
+        private static string ContactCommunicationFields = "{0}{1}*";
+        private static string ContactOrganizationFields = "{0}{1}*";
+
+        internal static ContactType LoadContactType(int Id)
+        {
+            ContactType contactType = ContactType.Person;
+            using (SqlConnection con = CommandHelper.CreateConnection(ConnInstance.PowerBuilderContacts))
+            {
+                string sql = @"                    
+                    SELECT CAST(SUM(X.CONTACTTYPE) AS TINYINT)
+                      FROM
+                         (
+                    SELECT CAST(1 AS TINYINT) AS CONTACTTYPE
+                      FROM CONT_PERSON P (NOLOCK) 
+                     WHERE P.AGENT_ID = {0}
+                     UNION   
+                    SELECT CAST(2 AS TINYINT) AS CONTACTTYPE
+                      FROM CONT_ORGANIZATION O (NOLOCK) 
+                     WHERE O.AGENT_ID = {0}
+                         ) AS X";
+
+                byte result = CommandHelper.GetSqlValue<byte>(sql, con, Id);
+
+                switch (result)
+                {
+                    case 0: break; //Id not found
+                    case 3: break; //Id in both tables
+                    default: contactType = (ContactType)result; break;
+                }
+            }
+            return contactType;
+        }
+
+        internal static PBContact Load(int Id)
+        {
+            return Load(Id, PBContactManager.LoadContactType(Id));
+        }
+
+        internal static PBContact Load(int Id, ContactType contactType)            
+        {
+            PBContact contact = new PBContact(contactType);
+
+            using (SqlConnection con = CommandHelper.CreateConnection(ConnInstance.PowerBuilderContacts))
+            {
+                switch (contact.ContactType)
+                {
+                    case ContactType.Person: contact.Person = LoadPerson(con, Id); break;
+                    case ContactType.Organization: contact.Organization = LoadOrganization(con, Id); break;
+                }
+                
+                contact.Addresses = LoadAddresses(con, Id);
+                                                
+                contact.Communications = LoadCommunications(con, Id);
+            }
+            return contact;
+        }
+
+        private static PBOrganization LoadOrganization(SqlConnection con, int Id)
+        {
+            PBOrganization organization = new PBOrganization();
+            using (SqlCommand command = con.CreateCommand())
+            {
+                command.CommandText = string.Format(@"
+                           SELECT {0}
+                             FROM [cont_Organization] O (NOLOCK) 
+                            WHERE O.Agent_Id = {1}",
+                    ContactOrganizationFields.TranslateFields("O"),
+                    command.CreateParameter("ID", Id));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        organization.Base.Id = CommandHelper.GetValueOrDefault<int>(reader["agent_id"]);
+                        organization.Base.Name = CommandHelper.GetValueOrDefault<string>(reader["org_name"]);
+
+                        organization.Base.Division = CommandHelper.GetValueOrDefault<string>(reader["org_division"]);
+                        organization.Base.Abbrev = CommandHelper.GetValueOrDefault<string>(reader["org_abbrev"]);
+                        organization.Base.Comments = CommandHelper.GetValueOrDefault<string>(reader["comments"]);
+                        
+                        string value = CommandHelper.GetValueOrDefault<string>(reader["Active_Flag"]);
+                        organization.Active = string.IsNullOrEmpty(value) ? null :
+                            string.Equals("Y", value.ToUpper()) ? (Nullable<bool>)true :
+                            string.Equals("N", value.ToUpper()) ? (Nullable<bool>)false : null;
+
+                        value = CommandHelper.GetValueOrDefault<string>(reader["Review_Flag"]);
+                        organization.Review = string.IsNullOrEmpty(value) ? null :
+                            string.Equals("Y", value.ToUpper()) ? (Nullable<bool>)true :
+                            string.Equals("N", value.ToUpper()) ? (Nullable<bool>)false : null;
+                    }
+                }
+            }
+            return organization;
+        }
+
+        private static PBPerson LoadPerson(SqlConnection con, int Id)
+        {
+            PBPerson person = new PBPerson();
+            using (SqlCommand command = con.CreateCommand())
+            {
+                command.CommandText = string.Format(@"
+                           SELECT {0}
+                             FROM [cont_Person] P (NOLOCK) 
+                            WHERE P.Agent_Id = {1}",
+                    ContactPersonFields.TranslateFields("P"),
+                    command.CreateParameter("ID", Id));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        person.Base.Id = CommandHelper.GetValueOrDefault<int>(reader["agent_id"]);
+                        person.Base.Surname = CommandHelper.GetValueOrDefault<string>(reader["surname"]);
+                        person.PhoName = CommandHelper.GetValueOrDefault<string>(reader["phoname"]);
+                        person.Base.Initials = CommandHelper.GetValueOrDefault<string>(reader["initials"]);
+
+                        person.Base.FirstName = CommandHelper.GetValueOrDefault<string>(reader["first_names"]);
+                        person.Base.KnownBy = CommandHelper.GetValueOrDefault<string>(reader["known_by"]);
+                        person.Base.Title = CommandHelper.GetValueOrDefault<string>(reader["title"]);
+                        person.PostalName = CommandHelper.GetValueOrDefault<string>(reader["postal_name"]);
+                                                 
+                        person.Base.Gender = CommandHelper.GetValueOrDefault<string>(reader["gender"]);
+
+                        person.Base.Comments = CommandHelper.GetValueOrDefault<string>(reader["Comments"]);
+
+                        string value = CommandHelper.GetValueOrDefault<string>(reader["Active_Flag"]);
+                        person.Active = string.IsNullOrEmpty(value) ? null :
+                            string.Equals("Y", value.ToUpper()) ? (Nullable<bool>)true :
+                            string.Equals("N", value.ToUpper()) ? (Nullable<bool>)false : null;
+
+                        value = CommandHelper.GetValueOrDefault<string>(reader["Review_Flag"]);
+                        person.Review = string.IsNullOrEmpty(value) ? null :
+                            string.Equals("Y", value.ToUpper()) ? (Nullable<bool>)true :
+                            string.Equals("N", value.ToUpper()) ? (Nullable<bool>)false : null;
+                    }
+                }
+            }
+            return person;
+        }
+
+        private static List<PBAddress> LoadAddresses(SqlConnection con, int Id)            
+        {
+            List<PBAddress> addresses = new List<PBAddress>();
+
+            using (SqlCommand command = con.CreateCommand())
+            {
+                command.CommandText = string.Format(@"
+                           SELECT {0}
+                             FROM [cont_Address] A (NOLOCK) 
+                            WHERE A.Agent_Id = {1}",
+                    ContactAddressFields.TranslateFields("A"),
+                    command.CreateParameter("ID", Id));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {                        
+                        PBAddress address = new PBAddress();
+                        address.Base.Id = CommandHelper.GetValueOrDefault<int>(reader["address_id"]);
+                        address.Base.AddressType = CommandHelper.GetValueOrDefault<string>(reader["address_type"]);
+                        string value = CommandHelper.GetValueOrDefault<string>(reader["address_format"]);
+                        address.AddressFormat = string.IsNullOrEmpty(value) ? default(char) : value[0];
+                        address.AddressPrologue = CommandHelper.GetValueOrDefault<string>(reader["address_prologue"]);
+
+                        address.Base.AddressNumberText = CommandHelper.GetValueOrDefault<string>(reader["Address_Number_Text"]);
+                        address.Base.FloorType = CommandHelper.GetValueOrDefault<string>(reader["Floor_Type"]);
+                        address.Base.FloorId = CommandHelper.GetValueOrDefault<string>(reader["Floor_Id"]);
+                        
+                        address.Base.BuildingPropertyName = CommandHelper.GetValueOrDefault<string>(reader["Building_Property_Name"]);
+                        address.Base.UnitType = CommandHelper.GetValueOrDefault<string>(reader["Unit_Type"]);
+                        address.Base.UnitId = CommandHelper.GetValueOrDefault<string>(reader["Unit_Id"]);
+                        address.Base.StreetName = CommandHelper.GetValueOrDefault<string>(reader["Street_Name"]);
+
+                        address.Base.StreetType = CommandHelper.GetValueOrDefault<string>(reader["Street_Type"]);
+                        address.Base.StreetSuffix = CommandHelper.GetValueOrDefault<string>(reader["Street_Suffix"]);
+                        address.Base.Suburb = CommandHelper.GetValueOrDefault<string>(reader["Suburb"]);
+                        address.Base.TownLocality = CommandHelper.GetValueOrDefault<string>(reader["Town_Locality"]);
+
+                        address.Base.PostalCode = CommandHelper.GetValueOrDefault<string>(reader["address_prologue"]);
+                       
+                        value = CommandHelper.GetValueOrDefault<string>(reader["primary_physical_flag"]);
+                        address.Base.PrimaryPhysicalFlag = string.IsNullOrEmpty(value) ? null :
+                            string.Equals("Y", value.ToUpper()) ? (Nullable<bool>)true :
+                            string.Equals("N", value.ToUpper()) ? (Nullable<bool>)false : null;
+
+                        value = CommandHelper.GetValueOrDefault<string>(reader["primary_postal_flag"]);
+                        address.Base.PrimaryPostalFlag = string.IsNullOrEmpty(value) ? null :
+                            string.Equals("Y", value.ToUpper()) ? (Nullable<bool>)true :
+                            string.Equals("N", value.ToUpper()) ? (Nullable<bool>)false : null;
+
+                        address.Base.AddressLine1 = CommandHelper.GetValueOrDefault<string>(reader["Address_Line1"]);
+                        address.Base.AddressLine2 = CommandHelper.GetValueOrDefault<string>(reader["Address_Line2"]);
+                        address.Base.AddressLine3 = CommandHelper.GetValueOrDefault<string>(reader["Address_Line3"]);
+                        address.Base.AddressLine4 = CommandHelper.GetValueOrDefault<string>(reader["Address_Line4"]);
+                        address.Base.AddressLine5 = CommandHelper.GetValueOrDefault<string>(reader["Address_Line5"]);
+
+                        address.Base.ContactId = Id;
+
+                        addresses.Add(address);
+                    }
+                }
+            }
+
+            return addresses;
+        }
+
+        private static List<PBCommunication> LoadCommunications(SqlConnection con, int Id)            
+        {
+            List<PBCommunication> communications = new List<PBCommunication>();
+
+            using (SqlCommand command = con.CreateCommand())
+            {
+                command.CommandText = string.Format(@"
+                           SELECT {0}
+                             FROM [cont_comm_point] c (NOLOCK) 
+                            WHERE c.Agent_Id = {1}",
+                    ContactCommunicationFields.TranslateFields("c"),
+                    command.CreateParameter("ID", Id));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        PBCommunication communication = new PBCommunication();
+                        communication.Base.Id = CommandHelper.GetValueOrDefault<int>(reader["cp_id"]);
+
+                        communication.Base.CommunicationType = CommandHelper.GetValueOrDefault<string>(reader["cp_type"]);
+                        communication.Content = CommandHelper.GetValueOrDefault<string>(reader["cp_content"]);
+                        communication.Base.Comments = CommandHelper.GetValueOrDefault<string>(reader["comments"]);
+                                                
+                        string value = CommandHelper.GetValueOrDefault<string>(reader["primary_flag"]);
+                        communication.Base.PrimaryFlag = string.IsNullOrEmpty(value) ? null :
+                            string.Equals("Y", value.ToUpper()) ? (Nullable<bool>)true :
+                            string.Equals("N", value.ToUpper()) ? (Nullable<bool>)false : null;
+
+                        communication.Base.ContactId = Id;
+
+                        communications.Add(communication);
+                    }
+                }
+            }
+
+            return communications;
+        }
+
+        internal static int Save(PBContact contact, bool newContact, string PBContactId="")
+        {
+            int Id = default(int);
+            using (SqlConnection con = CommandHelper.CreateConnection(ConnInstance.PowerBuilderContacts))
+            {
+                using (SqlTransaction trans = con.BeginTransaction())
+                {
+                    
+                    if (contact.ContactType == ContactType.Person)
+                    {
+                        Id = SavePerson(con, trans, contact.Person, newContact, PBContactId);
+                    }
+                    else
+                    {
+                        Id = SaveOrganization(con, trans, contact.Organization, newContact, PBContactId);
+                    }
+                    //if ( string.IsNullOrEmpty(PBContactId)) PBContactId = Id.ToString();
+                    //save billing address (IsBilling=TRUE) else save posatal address (IsPostal=TRUE)
+                    var primaryAddress = contact.Addresses.Find(a => a.Base.IsBilling.Equals(true) && a.Base.IsCurrent.Equals(true));
+                    if (primaryAddress == null)
+                    {//use postal no billing address found
+                        primaryAddress = contact.Addresses.Find(a => a.Base.IsPostal.Equals(true) && a.Base.IsCurrent.Equals(true));
+                        
+                    }
+                    if (primaryAddress != null)
+                    {
+                        primaryAddress.Base.ContactId = Id;
+                        primaryAddress.Base.PrimaryPostalFlag = true;
+                        SaveAddress(con, trans, primaryAddress, newContact, PBContactId);
+                    }
+                    
+                    //#BP 04/12/2015    Prevent creation of multiple primary flags per contact
+                    //#BP Work out a best primary comm point in case there are multiple (use a phone number if possible)
+                    PBCommunication bestPrimary = null;
+                    foreach (PBCommunication communication in contact.Communications)
+                    {
+                        if (communication.Base.BasicCommunicationType == "phone" && (bool)communication.Base.PrimaryFlag)
+                        {//#BP this gets the primary phone number (most cases will have this)
+                            bestPrimary = communication;
+                        }
+                    }
+
+                    foreach (PBCommunication communication in contact.Communications)
+                    {//step through all the comm points to update the database
+                        if (bestPrimary != null)
+                        {//#BP  check if we've identified a best primary phone number above...
+                            if (!communication.Equals(bestPrimary))
+                            {//#BP if we have, but this is not it then set the primary flag to false, ensuring only one primary flag is set
+                                communication.Base.PrimaryFlag = false;
+                            }
+                        }
+                        communication.Base.ContactId = Id;
+                        SaveCommunication(con, trans, communication, newContact, PBContactId);
+                    }
+                    trans.Commit();
+                }
+            }
+            return Id;
+        }
+
+        private static bool IdentityExists(SqlConnection con, SqlTransaction trans, string tableName, 
+            string targetFieldName,            
+            ref int targetId,
+            params Tuple<string, object>[] sourceFields)
+        {
+            using (SqlCommand command = con.CreateCommand())
+            {
+                command.Transaction = trans;
+                
+                string conditions = string.Empty;
+                for (int Idx = 0; Idx < sourceFields.Length; Idx++)
+                {                    
+                    string paramName = string.Format("@VALUE{0}", Idx);
+                    conditions += string.Format("AND T.{0} = {1}{2}", sourceFields[Idx].Item1, paramName, Environment.NewLine);
+                    command.CreateParameter(paramName, sourceFields[Idx].Item2);
+                }
+                
+                command.CommandText = string.Format(@"
+                    SELECT cast(T.{1} as int) AS ID
+                        FROM [{0}] T (NOLOCK)
+                    WHERE 1 = 1 
+                      {2} ORDER BY T.{1} DESC",
+                        tableName,
+                        targetFieldName,
+                        conditions);             
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        targetId = CommandHelper.GetValueOrDefault<int>(reader["ID"]);                        
+                    }
+                }
+            }
+            return targetId != default(int);
+        }
+
+        private static void SaveCommunication(SqlConnection con, SqlTransaction trans, PBCommunication communication, bool newContact, string PBContactId)            
+        {            
+            int Id = default(int);
+
+            
+            if (!newContact && IdentityExists(con, trans, "CONT_COMM_POINT", "CP_ID", ref Id,
+                new Tuple<string, object>("AGENT_ID", PBContactId),
+                //new Tuple<string, object>("cp_type", communication.Base.CommunicationType),
+                new Tuple<string, object>("scope", communication.Base.BasicCommunicationType)))
+            {
+                //update
+                using (SqlCommand command = con.CreateCommand())
+                {
+                    string sql = @"UPDATE CP
+                                      SET CP.CP_TYPE = {1},
+                                          CP.CP_CONTENT = {2},  
+                                          CP.COMMENTS = {3},
+                                          CP.IRISID = {4},
+                                          CP.PRIMARY_FLAG = {5}
+                                     FROM [CONT_COMM_POINT] CP (ROWLOCK)
+                                    WHERE CP.CP_ID = {0} ";
+
+                    command.Transaction = trans;
+                    command.CommandText = string.Format(sql,
+                        command.CreateParameter("Id", Id),
+                        command.CreateParameter("CommunicationType", communication.Base.CommunicationType),
+                        command.CreateParameter("Content", communication.Content),
+                        command.CreateParameter("Comments", communication.Base.Comments),
+                        command.CreateParameter("IrisId", communication.Base.SourceId),
+                         command.CreateParameter("PrimaryFlag", (bool)communication.Base.PrimaryFlag?'Y':'N')
+                        );
+                    command.ExecuteNonQuery();
+                }
+            }
+            else
+            {                
+                using (SqlCommand command = con.CreateCommand())
+                {
+                    int nextId = CommandHelper.GetNextKey(con, trans, "CONT_COMM_POINT", "CP_ID");
+                    string sql = @"INSERT [CONT_COMM_POINT](CP_TYPE, CP_CONTENT, COMMENTS, PRIMARY_FLAG, AGENT_ID, IRISID, Scope, CP_ID, AUDTRL_DATIME, AUDTRL_USER_ID )
+                                   SELECT {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, GETDATE(),{8}";
+
+                        command.Transaction = trans;
+                        command.CommandText = string.Format(sql,
+                        command.CreateParameter("CommunicationType", communication.Base.CommunicationType),
+                        command.CreateParameter("Content", communication.Content),
+                        command.CreateParameter("Comments", communication.Base.Comments),
+                        command.CreateParameter("PrimaryFlag", (bool)communication.Base.PrimaryFlag?'Y':'N'),
+                        command.CreateParameter("ContactId", communication.Base.ContactId),
+                        command.CreateParameter("IrisId", communication.Base.SourceId),
+                        command.CreateParameter("Scope", communication.Base.BasicCommunicationType),
+                        command.CreateParameter("CpId", nextId),
+                        command.CreateParameter("AuditUser", Environment.UserName)
+                        
+                        );
+
+                    command.ExecuteNonQuery();                    
+                    CommandHelper.UpdateNextKey(con, trans, "CONT_COMM_POINT", "CP_ID");
+                    communication.Base.Id = nextId;
+                    //BP 04/12/2015 Set Id = NextId so the following unique PrimaryFlag enforcer can avoid this ID
+                    Id = nextId;
+                }
+            }
+            //#BP 04/12/2015    Added this section to ensure only one primary flag per agent_id, so if the newly added or updated record has the primary flag set
+            //                  then set all other flags for the nominated agent_id to 'N'
+            if ((bool)communication.Base.PrimaryFlag)
+            {
+                using (SqlCommand cmd = con.CreateCommand())
+                {
+                    cmd.Transaction = trans;
+                    cmd.CommandText = @"UPDATE [CONT_COMM_POINT] SET primary_flag = 'N' WHERE agent_id = " + communication.Base.ContactId.ToString() + " AND cp_id <> " + Id.ToString();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            //#BP 04/12/2015    End of change
+        }
+
+        private static int SaveOrganization(SqlConnection con, SqlTransaction trans, PBOrganization organization, bool newContact, string PBContactID)            
+        {            
+            if (!newContact)
+            {
+                int Id = default(int);
+                if (IdentityExists(con, trans, "CONT_ORGANIZATION", "AGENT_ID", ref Id,
+                        new Tuple<string, object>("AGENT_ID", PBContactID)))
+                {
+                    organization.Base.Id = Id;
+
+                    //update
+                    using (SqlCommand command = con.CreateCommand())
+                    {
+                        string sql = @"UPDATE CO
+                                          SET CO.ORG_NAME = {1},
+                                              CO.ORG_DIVISION = {2},  
+                                              CO.COMMENTS = {3},
+                                              CO.IRISID = {4}
+                                         FROM [CONT_ORGANIZATION] CO (ROWLOCK)
+                                        WHERE CO.AGENT_ID = {0} ";
+
+                        command.Transaction = trans;
+                        command.CommandText = string.Format(sql,
+                            command.CreateParameter("Id", organization.Base.Id),
+                            command.CreateParameter("Name", organization.Base.Name),
+                            command.CreateParameter("Division", organization.Base.Division),
+                            command.CreateParameter("Comments", organization.Base.Comments),
+                            command.CreateParameter("IRISID",organization.Base.SourceId)
+                            );
+                        command.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    //issue: could not find the org to update
+                }
+            }
+            else
+            {
+                //insert 
+                int agentId = CommandHelper.GetNextKey(con, trans, "CONT_AGENT", "AGENT_ID");
+                using (SqlCommand command = con.CreateCommand())
+                {
+                    string sql = @"INSERT [CONT_ORGANIZATION]([ORG_NAME], [ORG_DIVISION], [COMMENTS], [ACTIVE_FLAG], [REVIEW_FLAG], [IRISID], [AGENT_ID], [AUDTRL_USER_ID], [AUDTRL_DATIME], [AUDTRL_SET_ID])
+                                   SELECT {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, GETDATE(), 0";
+                    
+                    command.Transaction = trans;
+                    command.CommandText = string.Format(sql,
+                        command.CreateParameter("Name", organization.Base.Name),
+                        command.CreateParameter("Division", organization.Base.Division),
+                        command.CreateParameter("Comments", organization.Base.Comments),
+                        command.CreateParameter("ActiveFlag", 'Y'),
+                        command.CreateParameter("ReviewFlag", (bool)organization.Review ? 'Y':'N'),
+                        command.CreateParameter("IrisId", organization.Base.SourceId),
+                        command.CreateParameter("AgentId", agentId),
+                        command.CreateParameter("AuditUser",Environment.UserName)
+                        );
+                    command.ExecuteNonQuery();
+
+                    
+                }
+                CommandHelper.UpdateNextKey(con, trans, "CONT_AGENT", "AGENT_ID");
+                organization.Base.Id = agentId;
+                
+            }
+            return organization.Base.Id;
+        }
+
+        private static int SavePerson(SqlConnection con, SqlTransaction trans, PBPerson person, bool newContact, string PBContactId)            
+        {            
+            if (!newContact)
+            {
+                int Id = default(int);
+                if (IdentityExists(con, trans, "CONT_PERSON", "AGENT_ID", ref Id,
+                        new Tuple<string, object>("AGENT_ID", PBContactId)))
+                {
+                    person.Base.Id = Id;
+
+                    //update
+                    using (SqlCommand command = con.CreateCommand())
+                    {
+                        string sql = @"UPDATE CP
+                                      SET CP.SURNAME = {1},
+                                          CP.INITIALS = {2},  
+                                          CP.FIRST_NAMES = {3},
+                                          CP.TITLE = {4},
+                                          CP.GENDER = {5},
+                                          CP.IRISID={6},
+                                          CP.ACTIVE_FLAG={7},
+                                          CP.REVIEW_FLAG={8}
+                                     FROM [CONT_PERSON] CP (ROWLOCK)
+                                    WHERE CP.AGENT_ID = {0}";
+
+                        command.Transaction = trans;
+                        command.CommandText = string.Format(sql,
+                            command.CreateParameter("Id", person.Base.Id),
+                            command.CreateParameter("Surname", person.Base.Surname),
+                            command.CreateParameter("Initials", person.Base.Initials),
+                            command.CreateParameter("FirstName", person.Base.FirstName),
+                            command.CreateParameter("Title", person.Base.Title),
+                            command.CreateParameter("Gender", person.Base.Gender),
+                            command.CreateParameter("IRISID",person.Base.SourceId),
+                            command.CreateParameter("Active", (bool)person.Active ? 'Y' : 'N'),
+                            command.CreateParameter("Review", (bool)person.Review ? 'Y' : 'N')
+                            );
+                        command.ExecuteNonQuery();
+                        
+                    }
+                }
+                else
+                {
+                    //issue: could not find the person to update
+                    return -1;
+                }
+            }
+            else
+            {
+                //insert 
+                string sql = string.Empty;
+                int agentId = CommandHelper.GetNextKey(con, trans, "CONT_AGENT", "AGENT_ID");
+                using (SqlCommand command = con.CreateCommand())
+                {
+                    sql = @"INSERT [CONT_PERSON]([SURNAME], [INITIALS], [FIRST_NAMES], [TITLE], [GENDER], [ACTIVE_FLAG], [REVIEW_FLAG], [IRISID],[AGENT_ID],[AUDTRL_USER_ID],[AUDTRL_DATIME],[AUDTRL_SET_ID], [SOURCE_SYSTEM_ID])
+                            SELECT {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7},{8}, {9}, GETDATE(),0,1";
+                    command.Transaction = trans;
+                    command.CommandText = string.Format(sql,
+                        command.CreateParameter("Surname", person.Base.Surname),
+                        command.CreateParameter("Initials", person.Base.Initials),
+                        command.CreateParameter("FirstName", person.Base.FirstName),
+                        command.CreateParameter("Title", person.Base.Title),
+                        command.CreateParameter("Gender", person.Base.Gender),
+                        command.CreateParameter("Active", (bool)person.Active ?'Y':'N'),
+                        command.CreateParameter("Review", (bool)person.Review ? 'Y' : 'N'),
+                        command.CreateParameter("IrisId", person.Base.SourceId),
+                        command.CreateParameter("AgentId",agentId),
+                        command.CreateParameter("AuditUser", Environment.UserName)
+                        );
+                    command.ExecuteNonQuery();
+                }
+                person.Base.Id = agentId;
+                CommandHelper.UpdateNextKey(con, trans, "CONT_AGENT", "AGENT_ID");
+            }
+            return person.Base.Id;
+        }
+
+        private static void SaveAddress(SqlConnection con, SqlTransaction trans, PBAddress address, bool newContact, string PBContactId)            
+        {            
+            int Id = 0;
+            if (!newContact && IdentityExists(con, trans, "CONT_ADDRESS", "ADDRESS_ID", ref Id,
+                new Tuple<string, object>("AGENT_ID", PBContactId)))
+            {
+                //update
+                using (SqlCommand command = con.CreateCommand())
+                {
+                    string sql = @"UPDATE CA
+                                      SET CA.ADDRESS_TYPE = {1},
+                                          CA.ADDRESS_FORMAT = {2},  
+                                          CA.ADDRESS_PROLOGUE = {3},  
+                                          CA.ADDRESS_NUMBER_TEXT = {4},  
+                                          CA.FLOOR_TYPE = {5},  
+                                          CA.FLOOR_ID = {6},                            
+                                          CA.BUILDING_PROPERTY_NAME = {7},  
+                                          CA.UNIT_TYPE = {8},  
+                                          CA.[UNIT_ID] = {9},
+                                          CA.[STREET_NAME] = {10},
+                                          CA.[STREET_TYPE] = {11},
+                                          CA.[STREET_SUFFIX] = {12},
+                                          CA.[SUBURB] = {13},
+                                          CA.[TOWN_LOCALITY] = {14},
+                                          CA.[POSTAL_CODE] = {15},
+                                          CA.[PRIMARY_PHYSICAL_FLAG] = {16},
+                                          CA.[PRIMARY_POSTAL_FLAG] = {17},
+                                          CA.[ADDRESS_LINE1] = {18},
+                                          CA.[ADDRESS_LINE2] = {19},
+                                          CA.[ADDRESS_LINE3] = {20},
+                                          CA.[ADDRESS_LINE4] = {21},
+                                          CA.[ADDRESS_LINE5] = {22},
+                                          CA.[IRISID] = {23},
+                                          CA.[AUDTRL_USER_ID]='IRIS',
+                                          CA.[AUDTRL_DATIME]=GETDATE()
+                                     FROM CONT_ADDRESS CA (ROWLOCK)
+                                    WHERE CA.ADDRESS_ID = {0} ";
+
+                    command.Transaction = trans;
+                    string addressType = address.Base.AddressType.StartsWith("Physical") ? "Physical" : address.Base.AddressType;
+                   
+
+
+                    command.CommandText = string.Format(sql,
+                        command.CreateParameter("Id", Id),
+                        command.CreateParameter("AddressType", addressType.Truncate(80)),
+                        command.CreateParameter("AddressFormat", address.AddressFormat),
+                        command.CreateParameter("AddressPrologue", address.AddressPrologue),
+                        command.CreateParameter("AddressNumberText", address.Base.AddressNumberText.Truncate(20)),
+                        command.CreateParameter("FloorType", address.Base.FloorType.Truncate(32)),
+                        command.CreateParameter("FloorId", address.Base.FloorId.Truncate(20)),
+                        command.CreateParameter("BuildingPropertyName", address.Base.BuildingPropertyName.Truncate(40)),
+                        command.CreateParameter("UnitType", address.Base.UnitType.Truncate(32)),
+                        command.CreateParameter("UnitId", address.Base.UnitId.Truncate(20)),
+                        command.CreateParameter("StreetName", address.Base.StreetName.Truncate(30)),
+                        command.CreateParameter("StreetType", address.Base.StreetType.Truncate(30)),
+                        command.CreateParameter("StreetSuffix", address.Base.StreetSuffix.Truncate(30)),
+                        command.CreateParameter("Suburb", address.Base.Suburb.Truncate(35)),
+                        command.CreateParameter("TownLocality", address.Base.TownLocality.Truncate(35)),
+                        command.CreateParameter("PostalCode", address.Base.PostalCode),
+                        command.CreateParameter("PrimaryPhysicalFlag", address.Base.PrimaryPhysicalFlag),
+                        command.CreateParameter("PrimaryPostalFlag", 'Y'),
+                        command.CreateParameter("AddressLine1", address.Base.AddressLine1.Truncate(50)),
+                        command.CreateParameter("AddressLine2", address.Base.AddressLine2.Truncate(50)),
+                        command.CreateParameter("AddressLine3", address.Base.AddressLine3.Truncate(50)),
+                        command.CreateParameter("AddressLine4", address.Base.AddressLine4.Truncate(50)),
+                        command.CreateParameter("AddressLine5", address.Base.AddressLine5.Truncate(50)),
+                        command.CreateParameter("IrisId", address.Base.SourceId)
+                        );
+                    
+                    command.ExecuteNonQuery();
+                    
+                    
+                }
+
+                using (SqlCommand command = con.CreateCommand())
+                {
+                    //Remove other addresses that are not the primary/billing
+                    command.Transaction = trans;
+                    string sql = @"DELETE CONT_ADDRESS WHERE ADDRESS_ID <> {0} AND AGENT_ID={1}";
+                    command.CommandText = string.Format(sql,
+                    command.CreateParameter("Id", Id), command.CreateParameter("AgentId", PBContactId));
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                //insert
+                int addressId = CommandHelper.GetNextKey(con, trans, "cont_address", "address_id");
+                using (SqlCommand command = con.CreateCommand())
+                {
+                   
+                    string sql = @"INSERT [CONT_ADDRESS]([ADDRESS_TYPE], [ADDRESS_FORMAT], [ADDRESS_PROLOGUE], [ADDRESS_NUMBER_TEXT], [FLOOR_TYPE], 
+                                                         FLOOR_ID, BUILDING_PROPERTY_NAME, UNIT_TYPE, UNIT_ID, STREET_NAME, STREET_TYPE, STREET_SUFFIX, 
+                                                         SUBURB, TOWN_LOCALITY, POSTAL_CODE, PRIMARY_PHYSICAL_FLAG, PRIMARY_POSTAL_FLAG, ADDRESS_LINE1, 
+                                                         ADDRESS_LINE2, ADDRESS_LINE3, ADDRESS_LINE4, ADDRESS_LINE5, AGENT_ID, IRISID, ADDRESS_ID, AUDTRL_DATIME, AUDTRL_USER_ID)
+                                   SELECT {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}, {18}, {19},
+                                          {20}, {21}, {22}, {23}, {24}, GETDATE(), {25}";
+                    
+                    command.Transaction = trans;
+                    string addressType = address.Base.AddressType.StartsWith("Physical") ? "Physical" : address.Base.AddressType;
+                    command.CommandText = string.Format(sql,                        
+                        command.CreateParameter("AddressType", addressType),
+                        command.CreateParameter("AddressFormat", address.AddressFormat),
+                        command.CreateParameter("AddressPrologue", address.AddressPrologue),
+                        command.CreateParameter("AddressNumberText", address.Base.AddressNumberText),
+                        command.CreateParameter("FloorType", address.Base.FloorType),
+                        command.CreateParameter("FloorId", address.Base.FloorId),
+                        command.CreateParameter("BuildingPropertyName", address.Base.BuildingPropertyName),
+                        command.CreateParameter("UnitType", address.Base.UnitType),
+                        command.CreateParameter("UnitId", address.Base.UnitId),
+                        command.CreateParameter("StreetName", address.Base.StreetName),
+                        command.CreateParameter("StreetType", address.Base.StreetType),
+                        command.CreateParameter("StreetSuffix", address.Base.StreetSuffix),
+                        command.CreateParameter("Suburb", address.Base.Suburb),
+                        command.CreateParameter("TownLocality", address.Base.TownLocality),
+                        command.CreateParameter("PostalCode", address.Base.PostalCode),
+                        command.CreateParameter("PrimaryPhysicalFlag", address.Base.PrimaryPhysicalFlag),
+                        command.CreateParameter("PrimaryPostalFlag", address.Base.PrimaryPostalFlag),
+                        command.CreateParameter("AddressLine1", address.Base.AddressLine1),
+                        command.CreateParameter("AddressLine2", address.Base.AddressLine2),
+                        command.CreateParameter("AddressLine3", address.Base.AddressLine3),
+                        command.CreateParameter("AddressLine4", address.Base.AddressLine4),
+                        command.CreateParameter("AddressLine5", address.Base.AddressLine5),
+                        command.CreateParameter("ContactId", address.Base.ContactId),
+                        command.CreateParameter("IrisId", address.Base.SourceId),
+                        command.CreateParameter("AddressId", addressId),
+                        command.CreateParameter("UserName",Environment.UserName)
+                        );
+                    
+                    int affectedRows = command.ExecuteNonQuery();
+                    
+                    CommandHelper.UpdateNextKey(con, trans, "cont_address", "address_id");
+                    
+
+                }
+            }
+        }
+    }
+}

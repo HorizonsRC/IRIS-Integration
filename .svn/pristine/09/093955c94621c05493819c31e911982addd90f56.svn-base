@@ -1,0 +1,593 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Iris = ContactsIntegration.ContactsService;
+using HRC.PowerBuilderContacts.BL;
+using HRC.Common;
+using HRC.Framework.BL;
+using HRC.Common.Validators;
+using HRC.Contacts.BL;
+using HRC.OzoneContacts.BL;
+using System.Text.RegularExpressions;
+
+/***
+ * This is a duplicate of Map.cs used as a quick work around to resolve issue with type conversion between namespace used in ContactsIntegrations.ContactsService (IRIS) vs ContractsIntegration
+ * ***/
+namespace ContactsIntegration.BL
+{
+    public class Remap
+    {
+        public static OzoneContact IRISContactToOzoneContact(Iris.ContactDetails contactDetails)
+        {
+            ContactType contactType = contactDetails.ContactType.ToUpper().Equals("PERSON") ? ContactType.Person : ContactType.Organization;
+            OzoneContact contact = new OzoneContact(contactType);
+            contact.IrisContactId = contactDetails.ContactID;
+
+            if (contact.ContactType == ContactType.Person)
+            {
+                contact.Person = new OzonePerson();
+                bool active = false;
+                contact.Person.Base = RemapCommonPerson(contactDetails, ref active);
+                contact.Person.DateOfBirth = contactDetails.ContactPersonDetails.PersonDateOfBirth;
+
+                contact.Person.ConfidentialReason = contactDetails.ContactPersonDetails.ConfidentialReason;
+
+
+                contact.Person.Base.Id = OzoneContact.GetMigrationId(contactDetails.ContactID);
+            }
+            else
+            {
+                contact.Organization = new OzoneOrganization();
+                bool active = false;
+                contact.Organization.Base = RemapCommonOrganization(contactDetails, ref active);
+            }
+
+            contact.Addresses = new List<OzoneAddress>();
+            foreach (Iris.ContactAddress contactAddress in contactDetails.ContactAddresses)
+            {
+                OzoneAddress address = new OzoneAddress();
+                address.Base = RemapCommonAddress(contactAddress, "Ozone");
+       
+                switch (address.Base.AddressTypeEnum)
+                {
+                    case AddressType.Street: address.Base.AddressType = "S"; break;
+                    case AddressType.Rural: address.Base.AddressType = "R"; break;
+                    case AddressType.POBox: address.Base.AddressType = "PO"; break;
+                    case AddressType.PrivateBag: address.Base.AddressType = "PR"; break;
+                    case AddressType.OtherDelivery: address.Base.AddressType = "TE"; break;
+                    case AddressType.Overseas: address.Base.AddressType = "OV"; break;
+                }
+               
+                contact.Addresses.Add(address);
+            }
+
+            contact.Communications = new List<OzoneCommunication>();
+            foreach (Iris.ContactPhoneNumber phone in contactDetails.ContactPhoneNumbers)
+            {
+                OzoneCommunication communication = new OzoneCommunication();
+                communication.Base = RemapCommonPhone(phone);
+
+                communication.IsPhone = true;
+
+                switch (phone.Type.ToLower())
+                { //PowerBuilder PhoneType Mapping
+                    case "business":
+                    case "main office":
+                    case "accounts":
+                    case "customer services":
+                    case "dispatch":
+                    case "work phone":
+                        communication.PhoneType = 'D';
+                        break;
+                    case "emergency":
+                    case "after hours":
+                        communication.PhoneType = 'A';
+                        break;
+                    case "fax":
+                    case "fax number":
+                        communication.PhoneType = 'F';
+                        break;
+                    case "home":
+                    case "home phone":
+                        communication.PhoneType = 'A';
+                        break;
+                    case "horizons mobile":
+                    case "mobile (business)":
+                    case "mobile (personal)":
+                    case "mobile phone (private)":
+                    case "mobile phone":
+                        communication.PhoneType = 'C';
+                        break;
+                    default:
+                        communication.PhoneType = 'I';
+                        break;
+                }
+
+                if (string.IsNullOrEmpty(communication.Base.CountryCode))
+                {
+                    communication.Base.CountryCode = "0064";
+                }
+                if (phone.IsPreferred && communication.PhoneType != 'I')
+                {
+                    contact.Communications.Add(communication);
+                }
+            }
+
+            foreach (Iris.ContactEmail email in contactDetails.ContactEmails)
+            {
+                OzoneCommunication communication = new OzoneCommunication();
+                communication.Base = RemapCommonEmail(email);
+                communication.IsEmail = true;
+                contact.Communications.Add(communication);
+            }
+
+            foreach (Iris.ContactWebsite website in contactDetails.ContactWebsites)
+            {
+                OzoneCommunication communication = new OzoneCommunication();
+                communication.Base = RemapCommonWebsite(website);
+                communication.IsWebsite = true;
+                contact.Communications.Add(communication);
+            }
+
+            return contact;
+        }
+
+        public static PBContact IRISContactToPowerBuilderContact(Iris.ContactDetails contactDetails)
+        {
+            ContactType contactType = contactDetails.ContactType.ToUpper().Equals("PERSON") ? ContactType.Person : ContactType.Organization;
+            PBContact contact = new PBContact(contactType);
+            contact.IrisContactId = contactDetails.ContactID;
+
+            if (contact.ContactType == ContactType.Person)
+            {
+                contact.Person = new PBPerson();
+                bool active = false;
+                contact.Person.Base = RemapCommonPerson(contactDetails, ref active);
+                contact.Person.Active = active;
+                contact.Person.Review = contactDetails.Review;
+            }
+            else
+            {
+                contact.Organization = new PBOrganization();
+                bool active = false;
+                contact.Organization.Base = RemapCommonOrganization(contactDetails, ref active);
+                contact.Organization.Active = active;
+                contact.Organization.Review = false; //default to false
+            }
+
+            contact.Addresses = new List<PBAddress>();
+            foreach (Iris.ContactAddress contactAddress in contactDetails.ContactAddresses)
+            {
+                PBAddress address = new PBAddress();
+                address.Base = RemapCommonAddress(contactAddress);
+
+                switch (address.Base.AddressTypeEnum)
+                {
+                    case AddressType.Street: address.AddressFormat = 'S'; break;
+                    case AddressType.Rural: address.AddressFormat = 'R'; break;
+                    case AddressType.POBox: address.AddressFormat = 'P'; break;
+                    case AddressType.PrivateBag: address.AddressFormat = 'B'; break;
+                    case AddressType.OtherDelivery: address.AddressFormat = 'O'; break;
+                    case AddressType.Overseas: address.AddressFormat = 'I'; break;
+                }
+
+                if (address.Base.AddressTypeEnum == AddressType.Rural)
+                {
+                    string streetAddress = string.Format("{0} {1} {2}",
+                        contactAddress.ContactUrbanRuralAddress.StreetNumber,
+                        contactAddress.ContactUrbanRuralAddress.StreetName.SafeTrimOrEmpty(),
+                        contactAddress.ContactUrbanRuralAddress.StreetDirection.SafeTrimOrEmpty()).SafeTrimOrEmpty();
+                    address.AddressPrologue = streetAddress;
+                }
+                if (address.Base.AddressTypeEnum == AddressType.Overseas)
+                { //create addressPrologue;
+                    string addressPrologue = address.Base.AddressLine1;
+                    addressPrologue += (addressPrologue.Length > 0 ? "\r\n" : "") + address.Base.AddressLine2;
+                    addressPrologue += (addressPrologue.Length > 0 ? "\r\n" : "") + address.Base.AddressLine3;
+                    addressPrologue += (addressPrologue.Length > 0 ? "\r\n" : "") + address.Base.AddressLine4;
+                    addressPrologue += (addressPrologue.Length > 0 ? "\r\n" : "") + address.Base.AddressLine5;
+                    address.AddressPrologue = addressPrologue;
+
+
+                }
+                contact.Addresses.Add(address);
+            }
+
+            contact.Communications = new List<PBCommunication>();
+            foreach (Iris.ContactPhoneNumber phone in contactDetails.ContactPhoneNumbers)
+            {
+                switch (phone.Type.ToLower())
+                { //PowerBuilder PhoneType Mapping
+                    case "business":
+                    case "main office":
+                    case "accounts":
+                    case "customer services":
+                    case "dispatch":
+                        phone.Type = "Work Phone";
+                        break;
+                    case "emergency":
+                    case "after hours":
+                        phone.Type = "After Hours";
+                        break;
+                    case "fax":
+                        phone.Type = "Fax Number";
+                        break;
+                    case "home":
+                        phone.Type = "Home Number";
+                        break;
+                    case "horizons mobile":
+                    case "mobile (business)":
+                        phone.Type = "Mobile Phone";
+                        break;
+                    case "mobile (personal)":
+                        phone.Type = "Mobile Phone (private)";
+                        break;
+                    default:
+                        phone.Type = "IGNORE";
+                        break;
+                }
+                if (phone.Type != "IGNORE")
+                {
+                    PBCommunication communication = new PBCommunication();
+                    communication.Base = RemapCommonPhone(phone);
+
+                    string phoneNumber = string.Format("{0} {1}{2}",
+                        communication.Base.CountryCode,
+                        communication.Base.AreaCode,
+                        communication.Base.Number).SafeTrimOrEmpty();
+
+                    communication.Content = phoneNumber;
+                    if (phone.IsPreferred)
+                    {
+                        communication.Base.PrimaryFlag = true;
+                        contact.Communications.Add(communication);
+                    }
+                }
+            }
+
+            foreach (Iris.ContactEmail email in contactDetails.ContactEmails)
+            {
+                PBCommunication communication = new PBCommunication();
+                communication.Base = RemapCommonEmail(email);
+                communication.Base.CommunicationType = "Email Address";
+                communication.Content = communication.Base.Email;
+                if (email.IsPreferred)
+                {
+                    communication.Base.PrimaryFlag = true;
+                    contact.Communications.Add(communication);
+                }
+            }
+
+            foreach (Iris.ContactWebsite website in contactDetails.ContactWebsites)
+            {
+                PBCommunication communication = new PBCommunication();
+                communication.Base = RemapCommonWebsite(website);
+
+                communication.Content = communication.Base.Website;
+                if (website.IsPreferred)
+                {
+                    communication.Base.PrimaryFlag = true;
+                    contact.Communications.Add(communication);
+                }
+            }
+
+            return contact;
+        }
+
+        private static Person RemapCommonPerson(Iris.ContactDetails contactDetails, ref bool active)
+        {
+            Person person = new Person();
+            Iris.ContactName contactName = null;
+
+            //attempt to find billing name
+            contactName = contactDetails.ContactNames.Where(c => c.IsBilling).FirstOrDefault();
+            if (contactName == null) //if no billing name use fullname
+            {//find FullName
+                contactName = contactDetails.ContactNames.Where(c => c.NameType.ToLower()=="full name").FirstOrDefault();
+
+            }
+
+            if (contactName == null) //if no fullname name use preferred name
+            {//find FullName
+                contactName = contactDetails.ContactNames.Where(c => c.IsPreferred).FirstOrDefault();
+              
+            }
+            if (contactName != null)
+            {
+               // Logging.Write("RemapCommonPerson", usedName, contactName.NameType);
+                person.FirstName = (contactName.ContactPersonName.PersonFirstName + " " + contactName.ContactPersonName.PersonMiddleNames).Truncate(50);
+                person.Surname = contactName.ContactPersonName.PersonLastName.Truncate(50);
+                person.Initials = getInitials(contactName.ContactPersonName.PersonFirstName, contactName.ContactPersonName.PersonMiddleNames);
+                person.Title = contactName.ContactPersonName.PersonTitle.Truncate(10);
+                person.Gender = contactDetails.ContactPersonDetails.PersonGender.Truncate(1);
+
+                person.SourceId = contactDetails.ContactID;
+
+                active = true;
+                if (contactDetails.ContactPersonDetails.PersonIsDeceased) active = false;
+            }
+            else
+            {//Original Code
+               // Logging.Write("RemapCommonPerson", "OriginalCode", string.Empty);
+                foreach (Iris.ContactName name in contactDetails.ContactNames)
+                {
+
+                    //Logging.Write("RemapCommonPerson", "OriginalCode", name.ContactPersonName.PersonFirstName + " " + name.ContactPersonName.PersonMiddleNames);
+                    if (name.IsPreferred)
+                    {
+                        person.FirstName = (name.ContactPersonName.PersonFirstName + " " + name.ContactPersonName.PersonMiddleNames).Truncate(50);
+                        person.Surname = name.ContactPersonName.PersonLastName.Truncate(50);
+                        person.Initials = getInitials(name.ContactPersonName.PersonFirstName, name.ContactPersonName.PersonMiddleNames);
+                        person.Title = name.ContactPersonName.PersonTitle.Truncate(10);
+                        person.Gender = contactDetails.ContactPersonDetails.PersonGender.Truncate(1);
+
+                        person.SourceId = contactDetails.ContactID;
+
+                        active = true;
+                        if (contactDetails.ContactPersonDetails.PersonIsDeceased) active = false;
+                    }
+                }
+            }
+            return person;
+        }
+
+        private static string getInitials(string firstNames, string middleNames){
+            Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
+            string init = initials.Replace(firstNames + " " + middleNames, "$1");
+            return init;
+        }
+
+        private static Organization RemapCommonOrganization(Iris.ContactDetails contactDetails, ref bool active)
+        {
+            Organization organization = new Organization();
+            foreach (Iris.ContactName name in contactDetails.ContactNames)
+            {
+                if (name.IsPreferred)
+                {
+                    organization.Name = name.ContactOrganisationName.OrganisationName;
+                    organization.Division = name.ContactOrganisationName.OrganisationDivisionName;
+
+                    organization.SourceId = contactDetails.ContactID;
+                }
+            }
+            return organization;
+        }
+
+        private static Address RemapCommonAddress(Iris.ContactAddress contactAddress, string syncType="")
+        {
+            Address address = new Address();
+            List<string> addressLines = new List<string>();
+            address.AddressType = contactAddress.ContactAddressType;
+
+            address.SourceId = contactAddress.ContactAddressID;
+
+            address.IsCurrent = contactAddress.IsCurrent;
+            address.IsCareOf = contactAddress.IsCareOf;
+            address.IsPostal = contactAddress.IsPostal;
+            address.IsBilling = contactAddress.IsBilling;
+            address.Prologue = contactAddress.Prologue;
+            if (contactAddress.ContactUrbanRuralAddress != null)
+            {
+                address.BuildingPropertyName = contactAddress.ContactUrbanRuralAddress.BuildingName;
+                address.StreetType = contactAddress.ContactUrbanRuralAddress.StreetType;
+                address.StreetName = contactAddress.ContactUrbanRuralAddress.StreetName;
+                address.StreetSuffix = contactAddress.ContactUrbanRuralAddress.StreetDirection;
+
+                
+                address.HouseNumber = contactAddress.ContactUrbanRuralAddress.StreetNumber.GetValueOrDefault(0);
+
+                string streetAddress = string.Format("{0} {1} {2}",
+                    contactAddress.ContactUrbanRuralAddress.StreetNumber,
+                    contactAddress.ContactUrbanRuralAddress.StreetName.SafeTrimOrEmpty(),
+                    contactAddress.ContactUrbanRuralAddress.StreetDirection.SafeTrimOrEmpty()).SafeTrimOrEmpty();
+
+                int ruralId;
+                if (int.TryParse(contactAddress.ContactUrbanRuralAddress.RuralDeliveryIdentifier, out ruralId))
+                {
+                    address.AddressNumberText = ruralId.ToString();
+                    address.AddressTypeEnum = AddressType.Rural;                    
+                }
+                else
+                {
+                    int? streetNumber = contactAddress.ContactUrbanRuralAddress.StreetNumber;
+                    address.AddressNumberText = (streetNumber.HasValue ? streetNumber.Value.ToString() : string.Empty) + contactAddress.ContactUrbanRuralAddress.StreetAlpha;
+                    address.AddressTypeEnum = AddressType.Street;
+                }
+                address.StreetAlpha = contactAddress.ContactUrbanRuralAddress.StreetAlpha;
+
+                address.TownLocality = contactAddress.ContactUrbanRuralAddress.TownCity;
+                address.Suburb = contactAddress.ContactUrbanRuralAddress.Suburb;
+                address.PostalCode = contactAddress.ContactUrbanRuralAddress.PostCode;
+                address.FloorType = contactAddress.ContactUrbanRuralAddress.FloorType;
+                address.FloorId = contactAddress.ContactUrbanRuralAddress.FloorIdentifier;
+
+                address.UnitId = contactAddress.ContactUrbanRuralAddress.UnitIdentifier;
+                address.UnitType = contactAddress.ContactUrbanRuralAddress.UnitType;
+
+                if (contactAddress.ContactUrbanRuralAddress.FloorType != null)
+                {
+                    //floor 
+                    addressLines.Add(contactAddress.ContactUrbanRuralAddress.FloorType);
+                }
+                else if (contactAddress.ContactUrbanRuralAddress.UnitType != null)
+                {
+                    //unit
+                    addressLines.Add(string.Format("{0} {1}", contactAddress.ContactUrbanRuralAddress.UnitIdentifier,
+                        contactAddress.ContactUrbanRuralAddress.UnitType).SafeTrimOrEmpty());
+                }
+
+                //building name
+                if (contactAddress.ContactUrbanRuralAddress.BuildingName != null)
+                {
+                    addressLines.Add(contactAddress.ContactUrbanRuralAddress.BuildingName);
+                }
+
+                //rural delivery
+               // Logging.Write("RD", contactAddress.ContactUrbanRuralAddress.RuralDeliveryIdentifier, "");
+                if (!string.IsNullOrEmpty(contactAddress.ContactUrbanRuralAddress.RuralDeliveryIdentifier))
+                {
+                    addressLines.Add(string.Format("RD{0}", contactAddress.ContactUrbanRuralAddress.RuralDeliveryIdentifier.SafeTrimOrEmpty()));
+                }
+
+                //street
+                addressLines.Add(streetAddress);
+
+                if (contactAddress.ContactUrbanRuralAddress.Suburb != null)
+                {
+                    addressLines.Add(contactAddress.ContactUrbanRuralAddress.Suburb);
+                }
+                addressLines.Add(string.Format("{0} {1}", contactAddress.ContactUrbanRuralAddress.TownCity,
+                    contactAddress.ContactUrbanRuralAddress.PostCode).SafeTrimOrEmpty());
+            }
+            else if (contactAddress.ContactDeliveryAddress != null)
+            {
+                address.AddressNumberText = contactAddress.ContactDeliveryAddress.DeliveryServiceIdentifier;
+                address.Suburb = contactAddress.ContactDeliveryAddress.BoxLobby;
+
+                switch (contactAddress.ContactDeliveryAddress.DeliveryAddressType)
+                {
+                    case "PO Box": address.AddressTypeEnum = AddressType.POBox; break; 
+                    case "Private Bag": address.AddressTypeEnum = AddressType.PrivateBag; break;
+                    default: address.AddressTypeEnum = AddressType.OtherDelivery; break; 
+                }
+
+                address.PostalCode = contactAddress.ContactDeliveryAddress.PostCode;
+                address.TownLocality = contactAddress.ContactDeliveryAddress.TownCity;
+
+                string localAddress = string.Format("{0} {1}", contactAddress.ContactDeliveryAddress.DeliveryAddressType,
+                    address.AddressNumberText).SafeTrimOrEmpty();
+                if (!string.IsNullOrEmpty(localAddress))
+                {
+                    addressLines.Add(localAddress);
+                }
+                localAddress = address.Suburb;
+                if (!string.IsNullOrEmpty(localAddress))
+                {
+                    addressLines.Add(localAddress);
+                }
+                localAddress = string.Format("{0} {1}", contactAddress.ContactDeliveryAddress.TownCity,
+                    contactAddress.ContactDeliveryAddress.PostCode).SafeTrimOrEmpty();
+                if (!string.IsNullOrEmpty(localAddress))
+                {
+                    addressLines.Add(localAddress);
+                }
+            }
+            else if (contactAddress.ContactOverseasAddress != null)
+            {
+                if (!string.IsNullOrEmpty(contactAddress.ContactOverseasAddress.AddressLine1))
+                {
+                    addressLines.Add(contactAddress.ContactOverseasAddress.AddressLine1);
+                }
+                if (!string.IsNullOrEmpty(contactAddress.ContactOverseasAddress.AddressLine2))
+                {
+                    addressLines.Add(contactAddress.ContactOverseasAddress.AddressLine2);
+                }
+                if (!string.IsNullOrEmpty(contactAddress.ContactOverseasAddress.AddressLine3))
+                {
+                    addressLines.Add(contactAddress.ContactOverseasAddress.AddressLine3);
+                }
+
+                if (syncType == "Ozone")
+                {
+                    if (!string.IsNullOrEmpty(contactAddress.ContactOverseasAddress.AddressLine4))
+                    {
+                        addressLines.Add(contactAddress.ContactOverseasAddress.AddressLine4);
+                    }
+                    if (!string.IsNullOrEmpty(contactAddress.ContactOverseasAddress.AddressLine5))
+                    {
+                        addressLines.Add(contactAddress.ContactOverseasAddress.AddressLine5);
+                    }
+
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(contactAddress.ContactOverseasAddress.AddressLine4))
+                    {
+                        if (string.IsNullOrEmpty(contactAddress.ContactOverseasAddress.AddressLine5))
+                        {
+                            addressLines.Add(contactAddress.ContactOverseasAddress.AddressLine4);
+                        }
+                        else
+                        {
+                            addressLines.Add(contactAddress.ContactOverseasAddress.AddressLine4 + ", " + contactAddress.ContactOverseasAddress.AddressLine5);
+                        }
+                    }
+                }
+                addressLines.Add(contactAddress.ContactOverseasAddress.Country);
+           
+                address.AddressTypeEnum = AddressType.Overseas;
+            }
+            else
+            {
+                //error verbosity to be determined 
+            }
+
+            if (addressLines.Count > 0) address.AddressLine1 = addressLines[0];
+            if (addressLines.Count > 1) address.AddressLine2 = addressLines[1];
+            if (addressLines.Count > 2) address.AddressLine3 = addressLines[2];
+            if (addressLines.Count > 3) address.AddressLine4 = addressLines[3];
+            if (addressLines.Count > 4) address.AddressLine5 = addressLines[4];
+            if (addressLines.Count > 5 && syncType == "Ozone") address.AddressLine6 = addressLines[5];
+            
+            return address;
+        }
+
+        private static Communication RemapCommonWebsite(Iris.ContactWebsite website)
+        {
+            Communication communication = new Communication();
+
+            communication.SourceId = website.ContactWebsiteID;
+
+            communication.BasicCommunicationType = "website";
+            communication.CommunicationType = website.Type;
+            communication.Website = website.URL;
+            return communication;
+        }
+
+        private static Communication RemapCommonEmail(Iris.ContactEmail email)
+        {
+            Communication communication = new Communication();
+
+            communication.SourceId = email.ContactEmailID;
+
+            communication.BasicCommunicationType = "email";
+            communication.CommunicationType = email.Type;
+            communication.Comments = email.Comment;
+            communication.Email = email.Value;
+            return communication;
+        }
+
+        private static Communication RemapCommonPhone(Iris.ContactPhoneNumber phone)
+        {
+            Communication communication = new Communication();
+
+            communication.SourceId = phone.ContactPhoneNumberID;
+
+            communication.BasicCommunicationType = "phone";
+            communication.CommunicationType = phone.Type;
+            communication.Comments = phone.Comment;
+            
+            string phoneNumber = PhoneValidator.Validate(phone.Number.SafeTrimOrEmpty());
+            bool splitAreaCode = true;
+
+            if (splitAreaCode)
+            {
+                int areaCodeLength = communication.CommunicationType.Contains("Mobile", StringComparison.InvariantCultureIgnoreCase) ? 3 : 2;
+                communication.Number = phoneNumber.SafeSubstring(0, 1).Equals("0") ? phoneNumber.SafeSubstring(areaCodeLength, phoneNumber.Length).SafeTrimOrEmpty() : phoneNumber;
+                communication.AreaCode = phoneNumber.SafeSubstring(0, 1).Equals("0") ? phoneNumber.SafeSubstring(0, areaCodeLength).SafeTrimOrEmpty() : string.Empty;
+            }
+            else
+            {
+                communication.Number = phoneNumber;
+            }
+            communication.Extension = phone.Extension.SafeTrimOrEmpty();
+            communication.CountryCode = phone.CountryCode.SafeTrimOrEmpty();
+
+            return communication;
+        }
+
+
+    }
+}

@@ -1,0 +1,4 @@
+To register the DSOFile.dll COM component, first copy the file to C:\SysWOW64\DSOFile.dll
+Then open a command window as administrator, navigate to the SysWOW64 folder and run regsvr32 DSOFile.dll
+This needs to be done on the IRIS application server
+

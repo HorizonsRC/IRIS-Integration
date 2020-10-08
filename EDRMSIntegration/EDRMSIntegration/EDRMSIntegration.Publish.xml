@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\irisdm\d$\HRC\EDRMS\" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/EDRMSIntegration.pdb" publishTime="09/07/2015 14:39:20" />
+    <file relUrl="bin/HRC.Common.pdb" publishTime="09/07/2015 14:35:37" />
+    <file relUrl="bin/HRC.Framework.dll" publishTime="09/07/2015 14:35:39" />
+    <file relUrl="bin/HRC.Framework.pdb" publishTime="09/07/2015 14:35:39" />
+    <file relUrl="bin/HRC.IRIS.dll" publishTime="09/07/2015 14:35:40" />
+    <file relUrl="Web.config" publishTime="09/07/2015 14:42:35" />
+    <file relUrl="bin/HRC.IRIS.pdb" publishTime="09/07/2015 14:35:40" />
+    <file relUrl="bin/HRC.Common.dll" publishTime="09/07/2015 14:35:37" />
+    <file relUrl="bin/DocumentFormat.OpenXml.xml" publishTime="09/07/2015 14:03:32" />
+    <file relUrl="bin/DocumentFormat.OpenXml.dll" publishTime="09/07/2015 14:03:29" />
+    <file relUrl="EDRMSIntegrationService.svc" publishTime="09/07/2015 14:03:32" />
+    <file relUrl="bin/EDRMSIntegration.dll" publishTime="09/07/2015 14:39:20" />
+  </publishProfile>
+</publishData>

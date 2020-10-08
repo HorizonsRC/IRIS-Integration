@@ -1,0 +1,285 @@
+﻿using System    ;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using HRC.Common;
+using HRC.Contacts.BL;
+using HRC.OzoneContacts.DL;
+using HRC.Framework.BL;
+using Ozone = HRC.OzoneContacts.OzoneService;
+using System.Configuration;
+using System.ServiceModel;
+using System.Xml.Serialization;
+using System.IO;
+using System.Xml;
+
+namespace HRC.OzoneContacts.BL
+{
+    public class OzoneContact : Contact
+    {
+        private static char phoneDelimiter = 'ý';
+        
+        public OzonePerson Person { get; set; }
+        public OzoneOrganization Organization { get; set; }
+        public List<OzoneAddress> Addresses { get; set; }
+        public List<OzoneCommunication> Communications { get; set; }
+
+        public string EmailAddress
+        {
+            get
+            {
+                if (this.Communications != null)
+                {
+                    OzoneCommunication com = this.Communications.Find(delegate(OzoneCommunication c)
+                    {
+                        return c.IsEmail;
+                    });
+                    return com == null ? null : com.Base.Email;
+                }
+                return null;
+            }
+        }
+
+        public List<string> EmailAddresses
+        {
+            get
+            {
+                List<string> emails = new List<string>();
+                if (this.Communications != null)
+                {
+                    foreach (OzoneCommunication com in this.Communications)
+                    {
+                        if (com.IsEmail)
+                        {
+                            emails.Add(com.Base.Email);
+                        }
+                    }
+                }
+                return emails;
+            }
+        }
+
+        public string Website
+        {
+            get
+            {
+                if (this.Communications != null)
+                {
+                    OzoneCommunication com = this.Communications.Find(delegate(OzoneCommunication c)
+                    {
+                        return c.IsWebsite;
+                    });
+                    return com == null ? null : com.Base.Website;
+                }
+                return null;
+            }
+        }
+
+        public List<string> Websites
+        {
+            get
+            {
+                List<string> websites = new List<string>();
+                if (this.Communications != null)
+                {
+                    foreach (OzoneCommunication com in this.Communications)
+                    {
+                        if (com.IsWebsite)
+                        {
+                            websites.Add(com.Base.Website);
+                        }
+                    }
+                }
+                return websites;
+            }
+        }
+
+        public string FullDialer
+        {
+            get
+            {
+                string dialer = string.Empty;
+                if (this.Communications != null)
+                {
+                    foreach (OzoneCommunication com in this.Communications)
+                    {
+                        if (com.IsPhone)
+                        {
+                            dialer = string.Format("{0}{1}{2}", dialer, string.IsNullOrEmpty(dialer) ? string.Empty : phoneDelimiter.ToString(), com.Dialer);
+                        }
+                    }
+                }
+                return dialer;
+            }
+        }
+
+        public List<string> Dialers {
+            get
+            {
+                List<string> dialers = new List<string>();
+                if (this.Communications != null)
+                {
+                    foreach (OzoneCommunication com in this.Communications)
+                    {
+                        if (com.IsPhone)
+                        {
+                            dialers.Add(com.Dialer);
+                        }
+                    }
+                }
+                return dialers;
+            }
+        }
+
+        public OzoneAddress PreferredAddress
+        {
+            get
+            {
+                if (this.Addresses != null)
+                {
+                    return this.Addresses.Find(delegate(OzoneAddress a)
+                    {
+                        return a.Base.IsCurrent;
+                    });
+                }
+                return null;
+            }
+        }
+
+        public OzoneAddress BillingAddress
+        {
+            get
+            {
+                if (this.Addresses != null)
+                {
+                    return this.Addresses.Find(delegate(OzoneAddress a)
+                    {
+                        return a.Base.IsBilling && a.Base.IsCurrent;
+                    });
+                }
+                return null;
+            }
+        }
+        public OzoneAddress PostalAddress
+        {
+            get
+            {
+                if (this.Addresses != null)
+                {
+                    return this.Addresses.Find(delegate(OzoneAddress a)
+                    {
+                        return a.Base.IsPostal && a.Base.IsCurrent;
+                    });
+                }
+                return null;
+            }
+        }
+
+        public OzoneContact() : base()
+        {
+        }
+
+        public OzoneContact(ContactType contactType)
+            : base(contactType)
+        {          
+        }
+
+        //public void SavePostXml()
+        //{
+        //    OzoneContactManager.SavePostXml(this.GeneratePostXml(), this.IrisContactId);
+        //}
+        public string SaveToOzone(ref string ozoneContactId, ref string ozoneErrorMessage, long irisId)
+        {
+            string saveResultStatus ="";
+            string token = null;
+            string postResultStatus="";
+                Ozone.OzoneSoapClient client = new Ozone.OzoneSoapClient();
+                try
+                {
+                    token = string.IsNullOrEmpty(token) ? client.AuthenticateWindows(ConfigurationManager.AppSettings["OzoneWebServiceURL"]) : token;
+
+                    #region DebugServiceClient
+                    //XmlSerializer xsSubmit = new XmlSerializer(client.GetType());
+                    //StringWriter sww = new StringWriter();
+                    //XmlWriter writer = XmlWriter.Create(sww);
+                    //xsSubmit.Serialize(writer, client);
+                    //var xmlClient = sww.ToString(); // Your xml
+                    //Logging.Write("SaveToOzone", "client object ", token.ToString(), xmlClient.ToString(), irisId); 
+                    #endregion
+                    
+                    string xml = client.PostData(token, this.GeneratePostXml(ozoneContactId));
+
+                    Logging.Write("SaveToOzone", "PostResultXml", string.Empty, xml, irisId);
+                    OzonePostResult postResult = OzoneContact.ProcessPostResult(xml);
+
+                    if (postResult.Items.Count > 0)
+                    {
+                        OzonePostResultItem contactResult = postResult.Items[0];
+                        postResultStatus = postResult.Status.ToString();
+                        ozoneContactId = contactResult.Id;
+                        saveResultStatus = contactResult.Status;
+                    }else {
+                        saveResultStatus = "FAILED";
+                        if (postResult.Errors.Count > 0) { 
+                            ozoneErrorMessage = postResult.Errors[0].ToString(); 
+                        }
+                        else
+                        {
+                            ozoneErrorMessage = xml;
+                        }
+                        Logging.Write("SaveToOzone", "Error", string.Empty, ozoneErrorMessage, irisId);
+                    }
+                }
+                catch (Exception e)
+                {
+                    saveResultStatus = "FAILED";
+                    Logging.Write("SaveToOzone", "Error Saving to Ozone", string.Empty, e.Message, irisId);
+                    //throw new Exception("Error Saving to Ozone: " + postResultStatus, e);
+                    //error verbosity to be determined (ie email or silent exception handling)                    
+                }
+                finally
+                {
+                    if (client.State == CommunicationState.Faulted)
+                    {
+                        saveResultStatus = "FAILED";
+                        Logging.Write("SaveToOzone", "Failed with Error", " CommunicationState.Faulted", string.Empty, irisId);
+                        client.Abort();
+                    }
+                    else
+                    {
+                        client.Close();
+                    }
+                }        
+           
+            return saveResultStatus;
+        }
+
+        public string SaveToOzoneQueue(ref string ozoneContactId)
+        {
+
+            return string.Empty;
+        }
+
+        public static List<OzoneQueueItem> LoadPostXml()
+        {
+            return OzoneContactManager.LoadPostXml();
+        }
+
+        public string GeneratePostXml(string ozoneContactId)
+        {
+            return OzoneContactManager.GeneratePostXml(this, ozoneContactId);
+        }
+
+        public static OzonePostResult ProcessPostResult(string xml)
+        {
+            return OzoneContactManager.ProcessPostResult(xml);            
+        }
+
+        public static int GetMigrationId(long Id)
+        {
+            return OzoneContactManager.GetMigrationId(Id);
+        }
+    }
+
+    
+}

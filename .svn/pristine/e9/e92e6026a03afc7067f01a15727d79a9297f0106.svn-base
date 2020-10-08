@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\iristest\d$\IRIS\Web\IRISWeb\HRC\Financial" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Service References/ContactsService/Reference.svcmap" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="bin/HRC.IRIS.dll" publishTime="01/21/2014 13:04:52" />
+    <file relUrl="bin/HRC.Framework.dll" publishTime="01/21/2014 13:04:52" />
+    <file relUrl="Service References/OzoneService/configuration.svcinfo" publishTime="12/06/2013 09:33:06" />
+    <file relUrl="Properties/AssemblyInfo.cs" publishTime="11/29/2013 11:52:40" />
+    <file relUrl="bin/FinancialsIntegration.dll" publishTime="01/21/2014 15:31:55" />
+    <file relUrl="Properties/DataSources/System.Xml.Linq.XElement.datasource" publishTime="12/06/2013 09:33:07" />
+    <file relUrl="Service References/ContactsService/ContactsService.xsd" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="bin/FinancialsIntegration.pdb" publishTime="01/21/2014 15:31:55" />
+    <file relUrl="Web.Release.config" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="bin/HRC.Common.pdb" publishTime="01/21/2014 13:04:35" />
+    <file relUrl="Service References/OzoneService/Ozone.disco" publishTime="12/06/2013 09:33:06" />
+    <file relUrl="FinancialsIntegration.csproj" publishTime="12/19/2013 11:08:18" />
+    <file relUrl="Service References/ContactsService/Reference.cs" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="Service References/ContactsService/ContactsService1.xsd" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="FinancialsIntegration.csproj.user" publishTime="12/19/2013 11:08:18" />
+    <file relUrl="Service References/ContactsService/ContactsService.wsdl" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="bin/HRC.Framework.pdb" publishTime="01/21/2014 13:04:52" />
+    <file relUrl="Service References/ContactsService/ContactsService1.wsdl" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="Service References/ContactsService/configuration91.svcinfo" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="Service References/ContactsService/FinancialsIntegration.ContactsService.ContactDetails.datasource" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="FinancialsIntegrationService.svc.cs" publishTime="01/21/2014 15:31:42" />
+    <file relUrl="IFinancialsIntegrationService.cs" publishTime="01/21/2014 15:08:02" />
+    <file relUrl="Service References/OzoneService/Reference.svcmap" publishTime="12/06/2013 09:33:06" />
+    <file relUrl="Service References/OzoneService/Reference.cs" publishTime="12/06/2013 09:33:07" />
+    <file relUrl="bin/HRC.IRIS.pdb" publishTime="01/21/2014 13:04:52" />
+    <file relUrl="Service References/ContactsService/configuration.svcinfo" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="bin/HRC.Common.dll" publishTime="01/21/2014 13:04:35" />
+    <file relUrl="Service References/OzoneService/Ozone.wsdl" publishTime="12/06/2013 09:33:06" />
+    <file relUrl="FinancialsIntegrationService.svc" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="Service References/ContactsService/ContactsService.disco" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="Web.config" publishTime="12/19/2013 11:02:46" />
+    <file relUrl="Service References/OzoneService/configuration91.svcinfo" publishTime="12/06/2013 09:33:06" />
+    <file relUrl="Web.Debug.config" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="Service References/ContactsService/ContactsService2.xsd" publishTime="11/29/2013 11:52:38" />
+    <file relUrl="Service References/ContactsService/FinancialsIntegration.ContactsService.ContactsCollection.datasource" publishTime="11/29/2013 11:52:38" />
+  </publishProfile>
+</publishData>

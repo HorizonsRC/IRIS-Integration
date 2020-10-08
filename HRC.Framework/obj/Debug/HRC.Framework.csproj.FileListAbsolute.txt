@@ -1,0 +1,29 @@
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.pdb
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csprojResolveAssemblyReference.cache
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.dll
+E:\Dropbox\Code and Database\Visual Studio Projects\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.pdb
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csprojResolveAssemblyReference.cache
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.dll
+E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.dll
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.pdb
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csprojAssemblyReference.cache
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CoreCompileInputs.cache
+D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CopyComplete

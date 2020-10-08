@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.datacom.co.nz/IRIS/Financials/" elementFormDefault="qualified" targetNamespace="http://www.datacom.co.nz/IRIS/Financials/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetTimeRecordingData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SinceDateTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimeRecordingDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTimeRecordingDataResult" nillable="true" type="tns:TimeRecordingData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TimeRecordingData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TimeRecordingEntry" nillable="true" type="tns:TimeRecordingEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeRecordingData" nillable="true" type="tns:TimeRecordingData" />
+  <xs:complexType name="TimeRecordingEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FINProjectCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hours" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsBillable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TimeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeRecordingEntry" nillable="true" type="tns:TimeRecordingEntry" />
+  <xs:element name="GetIRISData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NamedQuery" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Parameters" nillable="true" type="tns:Parameters" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Parameters">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Name" nillable="true" type="xs:string" />
+            <xs:element name="Value" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Parameters" nillable="true" type="tns:Parameters" />
+  <xs:element name="GetIRISDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIRISDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

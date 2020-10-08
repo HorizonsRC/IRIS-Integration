@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HasTokenExpired">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HasTokenExpiredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HasTokenExpiredResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateWindows">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateWindowsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateWindowsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallFunction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FunctionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Arguments" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallFunctionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CallFunctionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusObject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ItemId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Dict" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchSelectData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusObject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Dict" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Statement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Format" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludeRaw" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchSelectDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSelectDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusObject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Dict" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuiWebXmlDocStm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusObject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Dict" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Statement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Format" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludeRaw" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ItemId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuiWebXmlDocStmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GuiWebXmlDocStmResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPoolCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPoolCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPoolCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HasTokenExpiredSoapIn">
+    <wsdl:part name="parameters" element="tns:HasTokenExpired" />
+  </wsdl:message>
+  <wsdl:message name="HasTokenExpiredSoapOut">
+    <wsdl:part name="parameters" element="tns:HasTokenExpiredResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateWindowsSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateWindows" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateWindowsSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateWindowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallFunctionSoapIn">
+    <wsdl:part name="parameters" element="tns:CallFunction" />
+  </wsdl:message>
+  <wsdl:message name="CallFunctionSoapOut">
+    <wsdl:part name="parameters" element="tns:CallFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostDataSoapIn">
+    <wsdl:part name="parameters" element="tns:PostData" />
+  </wsdl:message>
+  <wsdl:message name="PostDataSoapOut">
+    <wsdl:part name="parameters" element="tns:PostDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteData" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSelectDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchSelectData" />
+  </wsdl:message>
+  <wsdl:message name="SearchSelectDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchSelectDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchData" />
+  </wsdl:message>
+  <wsdl:message name="SearchDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuiWebXmlDocStmSoapIn">
+    <wsdl:part name="parameters" element="tns:GuiWebXmlDocStm" />
+  </wsdl:message>
+  <wsdl:message name="GuiWebXmlDocStmSoapOut">
+    <wsdl:part name="parameters" element="tns:GuiWebXmlDocStmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPoolCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPoolCount" />
+  </wsdl:message>
+  <wsdl:message name="GetPoolCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPoolCountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OzoneSoap">
+    <wsdl:operation name="HasTokenExpired">
+      <wsdl:input message="tns:HasTokenExpiredSoapIn" />
+      <wsdl:output message="tns:HasTokenExpiredSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:input message="tns:AuthenticateSoapIn" />
+      <wsdl:output message="tns:AuthenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateWindows">
+      <wsdl:input message="tns:AuthenticateWindowsSoapIn" />
+      <wsdl:output message="tns:AuthenticateWindowsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallFunction">
+      <wsdl:input message="tns:CallFunctionSoapIn" />
+      <wsdl:output message="tns:CallFunctionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostData">
+      <wsdl:input message="tns:PostDataSoapIn" />
+      <wsdl:output message="tns:PostDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteData">
+      <wsdl:input message="tns:DeleteDataSoapIn" />
+      <wsdl:output message="tns:DeleteDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input message="tns:GetDataSoapIn" />
+      <wsdl:output message="tns:GetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSelectData">
+      <wsdl:input message="tns:SearchSelectDataSoapIn" />
+      <wsdl:output message="tns:SearchSelectDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchData">
+      <wsdl:input message="tns:SearchDataSoapIn" />
+      <wsdl:output message="tns:SearchDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuiWebXmlDocStm">
+      <wsdl:input message="tns:GuiWebXmlDocStmSoapIn" />
+      <wsdl:output message="tns:GuiWebXmlDocStmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPoolCount">
+      <wsdl:input message="tns:GetPoolCountSoapIn" />
+      <wsdl:output message="tns:GetPoolCountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OzoneSoap" type="tns:OzoneSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HasTokenExpired">
+      <soap:operation soapAction="http://tempuri.org/HasTokenExpired" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateWindows">
+      <soap:operation soapAction="http://tempuri.org/AuthenticateWindows" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallFunction">
+      <soap:operation soapAction="http://tempuri.org/CallFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostData">
+      <soap:operation soapAction="http://tempuri.org/PostData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteData">
+      <soap:operation soapAction="http://tempuri.org/DeleteData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSelectData">
+      <soap:operation soapAction="http://tempuri.org/SearchSelectData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchData">
+      <soap:operation soapAction="http://tempuri.org/SearchData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuiWebXmlDocStm">
+      <soap:operation soapAction="http://tempuri.org/GuiWebXmlDocStm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPoolCount">
+      <soap:operation soapAction="http://tempuri.org/GetPoolCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OzoneSoap12" type="tns:OzoneSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HasTokenExpired">
+      <soap12:operation soapAction="http://tempuri.org/HasTokenExpired" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://tempuri.org/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateWindows">
+      <soap12:operation soapAction="http://tempuri.org/AuthenticateWindows" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallFunction">
+      <soap12:operation soapAction="http://tempuri.org/CallFunction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostData">
+      <soap12:operation soapAction="http://tempuri.org/PostData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteData">
+      <soap12:operation soapAction="http://tempuri.org/DeleteData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap12:operation soapAction="http://tempuri.org/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSelectData">
+      <soap12:operation soapAction="http://tempuri.org/SearchSelectData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchData">
+      <soap12:operation soapAction="http://tempuri.org/SearchData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuiWebXmlDocStm">
+      <soap12:operation soapAction="http://tempuri.org/GuiWebXmlDocStm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPoolCount">
+      <soap12:operation soapAction="http://tempuri.org/GetPoolCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Ozone">
+    <wsdl:port name="OzoneSoap" binding="tns:OzoneSoap">
+      <soap:address location="http://pnt-oz2/test/Origen.WebserviceAPI/Ozone.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OzoneSoap12" binding="tns:OzoneSoap12">
+      <soap12:address location="http://pnt-oz2/test/Origen.WebserviceAPI/Ozone.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

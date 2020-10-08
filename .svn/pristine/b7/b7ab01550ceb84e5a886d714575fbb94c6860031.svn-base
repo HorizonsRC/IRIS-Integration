@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.datacom.co.nz/IRIS/Financials/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.datacom.co.nz/IRIS/Financials/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.datacom.co.nz/IRIS/Financials/Imports">
+      <xsd:import schemaLocation="http://irisdm.horizons.govt.nz/ServiceInterface/FinancialsService.svc?xsd=xsd0" namespace="http://www.datacom.co.nz/IRIS/Financials/" />
+      <xsd:import schemaLocation="http://irisdm.horizons.govt.nz/ServiceInterface/FinancialsService.svc?xsd=xsd2" namespace="http://www.datacom.co.nz/IRIS/" />
+      <xsd:import schemaLocation="http://irisdm.horizons.govt.nz/ServiceInterface/FinancialsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFinancialsService_GetTimeRecordingData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeRecordingData" />
+  </wsdl:message>
+  <wsdl:message name="IFinancialsService_GetTimeRecordingData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeRecordingDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinancialsService_GetTimeRecordingData_IRISServiceFaultContractFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://www.datacom.co.nz/IRIS/" name="detail" element="q1:IRISServiceFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="IFinancialsService_GetIRISData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIRISData" />
+  </wsdl:message>
+  <wsdl:message name="IFinancialsService_GetIRISData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIRISDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinancialsService_GetIRISData_IRISServiceFaultContractFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://www.datacom.co.nz/IRIS/" name="detail" element="q2:IRISServiceFaultContract" />
+  </wsdl:message>
+  <wsdl:portType name="IFinancialsService">
+    <wsdl:operation name="GetTimeRecordingData">
+      <wsdl:input wsaw:Action="http://www.datacom.co.nz/IRIS/Financials/IFinancialsService/GetTimeRecordingData" message="tns:IFinancialsService_GetTimeRecordingData_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.datacom.co.nz/IRIS/Financials/IFinancialsService/GetTimeRecordingDataResponse" message="tns:IFinancialsService_GetTimeRecordingData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.datacom.co.nz/IRIS/Financials/IFinancialsService/GetTimeRecordingDataIRISServiceFaultContractFault" name="IRISServiceFaultContractFault" message="tns:IFinancialsService_GetTimeRecordingData_IRISServiceFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIRISData">
+      <wsdl:input wsaw:Action="http://www.datacom.co.nz/IRIS/Financials/IFinancialsService/GetIRISData" message="tns:IFinancialsService_GetIRISData_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.datacom.co.nz/IRIS/Financials/IFinancialsService/GetIRISDataResponse" message="tns:IFinancialsService_GetIRISData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.datacom.co.nz/IRIS/Financials/IFinancialsService/GetIRISDataIRISServiceFaultContractFault" name="IRISServiceFaultContractFault" message="tns:IFinancialsService_GetIRISData_IRISServiceFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
