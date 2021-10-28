@@ -27,3 +27,12 @@ D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS In
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csprojAssemblyReference.cache
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CoreCompileInputs.cache
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CopyComplete
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csprojAssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CopyComplete
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.pdb

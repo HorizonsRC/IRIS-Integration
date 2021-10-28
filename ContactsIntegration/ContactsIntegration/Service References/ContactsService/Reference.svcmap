@@ -21,12 +21,12 @@
     <MetadataSource Address="http://iristest.horizons.govt.nz/serviceinterface/ContactsService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ContactsService.wsdl" MetadataType="Wsdl" ID="1db93433-fe96-4790-ae99-159a170c221c" SourceId="1" SourceUrl="http://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?wsdl" />
-    <MetadataFile FileName="ContactsService.xsd" MetadataType="Schema" ID="7b119884-fad8-46c4-bd27-102c3e5181df" SourceId="1" SourceUrl="http://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ContactsService1.xsd" MetadataType="Schema" ID="c6fc04c0-f752-4517-b524-89953b3bbe4d" SourceId="1" SourceUrl="http://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ContactsService.disco" MetadataType="Disco" ID="cf2aeb9b-4123-4000-9e05-aecd0dcb56b3" SourceId="1" SourceUrl="http://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?disco" />
-    <MetadataFile FileName="ContactsService2.xsd" MetadataType="Schema" ID="fbc8a7c1-2a1a-4cd6-8852-8a079d7dfd8a" SourceId="1" SourceUrl="http://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ContactsService1.wsdl" MetadataType="Wsdl" ID="bbe78c91-d036-4c61-b8b9-395678b4a12e" SourceId="1" SourceUrl="http://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ContactsService3.xsd" MetadataType="Schema" ID="08404681-20c7-46a1-9153-5d5568887230" SourceId="1" SourceUrl="https://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContactsService31.xsd" MetadataType="Schema" ID="a29e1e89-ddf9-43ca-ab67-5a6fdd97bae8" SourceId="1" SourceUrl="https://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContactsService2.wsdl" MetadataType="Wsdl" ID="de485d4e-086b-410b-b929-19cf8adb62d9" SourceId="1" SourceUrl="https://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?wsdl" />
+    <MetadataFile FileName="ContactsService32.xsd" MetadataType="Schema" ID="8552fcc5-a63c-475b-9b15-be898d89eb9f" SourceId="1" SourceUrl="https://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContactsService1.disco" MetadataType="Disco" ID="7960e919-31db-4a8c-806f-ed0ec92dc4b2" SourceId="1" SourceUrl="https://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?disco" />
+    <MetadataFile FileName="ContactsService21.wsdl" MetadataType="Wsdl" ID="7bdb0cf7-f7e0-458e-90eb-d9cc480da54f" SourceId="1" SourceUrl="https://iristest.horizons.govt.nz/ServiceInterface/ContactsService.svc?wsdl=wsdl0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

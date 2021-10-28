@@ -20,6 +20,12 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,19 +67,28 @@
   <ItemGroup>
     <Content Include="BulkLoadService.svc" />
     <Content Include="ContactsIntegrationService.svc" />
-    <None Include="Service References\ContactsService\ContactsService.disco" />
+    <Content Include="Service References\ContactsService\ContactsIntegration.ContactsService.BulkLoadContactsOutcome.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ContactsService\ContactsIntegration.ContactsService.ContactDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ContactsService\ContactsIntegration.ContactsService.ContactsCollection.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ContactsService\ContactsService1.disco" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
     <None Include="Service References\ContactsService\configuration91.svcinfo" />
     <None Include="Service References\ContactsService\configuration.svcinfo" />
-    <None Include="Service References\ContactsService\ContactsService.wsdl" />
-    <None Include="Service References\ContactsService\ContactsService.xsd">
+    <None Include="Service References\ContactsService\ContactsService2.wsdl" />
+    <None Include="Service References\ContactsService\ContactsService21.wsdl" />
+    <None Include="Service References\ContactsService\ContactsService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ContactsService\ContactsService1.wsdl" />
-    <None Include="Service References\ContactsService\ContactsService1.xsd">
+    <None Include="Service References\ContactsService\ContactsService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ContactsService\ContactsService2.xsd">
+    <None Include="Service References\ContactsService\ContactsService32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ContactsService\Reference.svcmap">
@@ -221,7 +236,6 @@
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-          <EnableWcfTestClientForSVCDefaultValue>True</EnableWcfTestClientForSVCDefaultValue>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

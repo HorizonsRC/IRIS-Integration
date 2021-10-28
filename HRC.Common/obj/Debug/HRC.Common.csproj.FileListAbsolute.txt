@@ -26,3 +26,11 @@ D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS In
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.pdb
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csprojAssemblyReference.cache
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.Common\bin\Debug\HRC.Common.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csprojAssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.Properties.Resources.resources
+D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.GenerateResource.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.pdb

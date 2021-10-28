@@ -28,3 +28,12 @@ D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS In
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.csproj.CopyComplete
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.dll
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\bin\Debug\HRC.IRIS.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\bin\Debug\HRC.IRIS.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\bin\Debug\HRC.Common.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\bin\Debug\HRC.Common.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.csprojAssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.csproj.CopyComplete
+D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.pdb

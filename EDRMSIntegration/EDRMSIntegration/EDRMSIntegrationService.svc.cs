@@ -365,7 +365,7 @@ namespace EDRMSIntegration
                 //#BP 15/09/2017    Inserted code here to handle folders for Regime Activities
                 if (!string.IsNullOrEmpty(data.BusinessId))
                 {
-                     myDocument.GetDocumentIDFromPath(DocumentFullPath,data.Id);
+                     myDocument.GetDocumentIDFromPath(DocumentFullPath,data.Id,owner);
                 }
             }
             return myDocument.Id.ToString();

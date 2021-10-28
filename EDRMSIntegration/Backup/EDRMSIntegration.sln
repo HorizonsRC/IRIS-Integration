@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDRMSIntegration", "EDRMSIntegration\EDRMSIntegration.csproj", "{FE09EEB0-BD62-49AB-9411-58234E61F25F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRC.Common", "..\HRC.Common\HRC.Common.csproj", "{586CBD33-425A-49E7-994A-05D12A6FC7FD}"
@@ -76,5 +78,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F159931A-3A8F-48AB-BCA6-EC2462F9BDEA}
 	EndGlobalSection
 EndGlobal
