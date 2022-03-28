@@ -13,3 +13,6 @@ ContactsIntegration/ContactsIntegration/ContactsIntegration.csproj
 ContactsIntegration/ContactsIntegration/ContactsIntegration.csproj.user
 ContactsIntegration/ContactsIntegration/obj/Debug/ContactsIntegration.csprojAssemblyReference.cache
 ContactsIntegration/ContactsIntegration/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.dll
+*.pdb
+*.exe
