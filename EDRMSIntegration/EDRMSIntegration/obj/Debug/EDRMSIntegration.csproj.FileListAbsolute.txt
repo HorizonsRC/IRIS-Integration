@@ -1,9 +1,3 @@
-\\irisdm\d$\HRC\EDRMS\bin\Web.config
-\\irisdm\d$\HRC\EDRMS\bin\Web.Debug.config
-\\irisdm\d$\HRC\EDRMS\bin\Web.Release.config
-\\irisdm\d$\HRC\EDRMS\bin\EDRMSIntegration.dll.config
-\\irisdm\d$\HRC\EDRMS\bin\EDRMSIntegration.dll
-\\irisdm\d$\HRC\EDRMS\bin\EDRMSIntegration.pdb
 D:\Documents\Source Code\GitHub\IRIS\WebServices\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csprojResolveAssemblyReference.cache
 D:\Documents\Source Code\GitHub\IRIS\WebServices\EDRMSIntegration\EDRMSIntegration\obj\Debug\Interop.DSOFile.dll
 D:\Documents\Source Code\GitHub\IRIS\WebServices\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.ResolveComReference.cache
@@ -17,9 +11,32 @@ D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS In
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.pdb
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\Interop.DSOFile.dll
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.ResolveComReference.cache
-D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csprojAssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.AssemblyReference.cache
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\Interop.DSOFile.dll
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.ResolveComReference.cache
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.Properties.Resources.resources
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.GenerateResource.cache
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.pdb
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\Web.config
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\Web.Debug.config
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\Web.Release.config
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\EDRMSIntegration.dll.config
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\EDRMSIntegration.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\EDRMSIntegration.pdb
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\DocumentFormat.OpenXml.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\HRC.Common.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\HRC.Framework.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\HRC.IRIS.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\PdfSharp.Charting.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\PdfSharp.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\HRC.Common.pdb
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\HRC.Framework.pdb
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\HRC.IRIS.pdb
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\DocumentFormat.OpenXml.xml
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\PdfSharp.xml
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\PdfSharp.Charting.xml
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\de\PdfSharp.resources.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\bin\Debug\de\PdfSharp.Charting.resources.dll
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\EDRMSIntegration\obj\Debug\EDRMSIntegration.csproj.CopyComplete

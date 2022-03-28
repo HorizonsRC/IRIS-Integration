@@ -11,6 +11,7 @@
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <UseGlobalApplicationHostFile />
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

@@ -39,7 +39,7 @@ D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\Harness\bin\Debug\HRC.
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\Harness\bin\Debug\HRC.Common.pdb
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\Harness\bin\Debug\HRC.Framework.pdb
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\Harness\bin\Debug\HRC.IRIS.pdb
-D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\Harness\obj\x86\Debug\Harness.csprojAssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\Harness\obj\x86\Debug\Harness.csproj.AssemblyReference.cache
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\Harness\obj\x86\Debug\Harness.Form1.resources
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\Harness\obj\x86\Debug\Harness.Properties.Resources.resources
 D:\Documents\GithubLive\IRIS Integration\EDRMSIntegration\Harness\obj\x86\Debug\Harness.csproj.GenerateResource.cache

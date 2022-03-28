@@ -216,9 +216,9 @@ namespace EDRMSIntegration
 
                     int docCount = 1;
                     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                    //  #BP   28/08/2017  Enable the Legacy Monitoring Activities sub-folder to be surfaced in the list of documents for Regimes
+                    //  #BP   28/08/2017  Enable the Legacy Monitoring Activities sub-folder to be surfaced in the list of documents for Regimes and Management Sites
                     //  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                    if (processedMetadata.ObjectType.Name == "Regime")
+                    if (processedMetadata.ObjectType.Name == "Regime" || processedMetadata.ObjectType.Name == "Management Site")
                     {
                         foreach (DirectoryInfo dirInfo in dInfo.GetDirectories())
                         {
@@ -243,7 +243,7 @@ namespace EDRMSIntegration
                     //  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                     //  If it's a Regime, load all the files from the sub-directories (not recursive at this stage - let's see how it goes first)
                     //  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                    if (processedMetadata.ObjectType.Name == "Regime")
+                    if (processedMetadata.ObjectType.Name == "Regime" || processedMetadata.ObjectType.Name == "Management Site")
                     {
                         foreach (DirectoryInfo dirInfo in dInfo.GetDirectories())
                         {
@@ -363,10 +363,10 @@ namespace EDRMSIntegration
                 //use BusinessID if it exists
                 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 //#BP 15/09/2017    Inserted code here to handle folders for Regime Activities
-                if (!string.IsNullOrEmpty(data.BusinessId))
-                {
-                     myDocument.GetDocumentIDFromPath(DocumentFullPath,data.Id,owner);
-                }
+                //if (!string.IsNullOrEmpty(data.BusinessId))
+                //{
+                 //    myDocument.GetDocumentIDFromPath(DocumentFullPath,data.Id,owner);
+                //}
             }
             return myDocument.Id.ToString();
         }

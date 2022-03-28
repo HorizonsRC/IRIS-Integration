@@ -31,7 +31,7 @@ D:\Documents\GithubLive\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.d
 D:\Documents\GithubLive\IRIS Integration\HRC.Framework\bin\Debug\HRC.Framework.pdb
 D:\Documents\GithubLive\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.dll
 D:\Documents\GithubLive\IRIS Integration\HRC.Framework\bin\Debug\HRC.Common.pdb
-D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csprojAssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.AssemblyReference.cache
 D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CoreCompileInputs.cache
 D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CopyComplete
 D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.dll
