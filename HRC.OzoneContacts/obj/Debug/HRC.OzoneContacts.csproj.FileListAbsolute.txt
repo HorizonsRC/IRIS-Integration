@@ -46,3 +46,17 @@ D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS In
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.OzoneContacts\obj\Debug\HRC.OzoneContacts.csprojResolveAssemblyReference.cache
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.OzoneContacts\obj\Debug\HRC.OzoneContacts.dll
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.OzoneContacts\obj\Debug\HRC.OzoneContacts.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\bin\Debug\HRC.OzoneContacts.dll.config
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\bin\Debug\HRC.OzoneContacts.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\bin\Debug\HRC.OzoneContacts.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\bin\Debug\HRC.Common.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\bin\Debug\HRC.Contacts.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\bin\Debug\HRC.Framework.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\bin\Debug\HRC.Common.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\bin\Debug\HRC.Contacts.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\bin\Debug\HRC.Framework.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\obj\Debug\HRC.OzoneContacts.csproj.AssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\obj\Debug\HRC.OzoneContacts.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\obj\Debug\HRC.OzoneContacts.csproj.CopyComplete
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\obj\Debug\HRC.OzoneContacts.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.OzoneContacts\obj\Debug\HRC.OzoneContacts.pdb

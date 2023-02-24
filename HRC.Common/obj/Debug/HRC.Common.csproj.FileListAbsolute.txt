@@ -33,3 +33,4 @@ D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.
 D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.CoreCompileInputs.cache
 D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.dll
 D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.AssemblyReference.cache

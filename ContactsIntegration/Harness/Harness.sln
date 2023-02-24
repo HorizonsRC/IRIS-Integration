@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harness", "Harness.csproj", "{A7A682AC-E382-46ED-A1FA-CAE6D00E936B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7A682AC-E382-46ED-A1FA-CAE6D00E936B}.Debug|x86.ActiveCfg = Debug|x86
+		{A7A682AC-E382-46ED-A1FA-CAE6D00E936B}.Debug|x86.Build.0 = Debug|x86
+		{A7A682AC-E382-46ED-A1FA-CAE6D00E936B}.Release|x86.ActiveCfg = Release|x86
+		{A7A682AC-E382-46ED-A1FA-CAE6D00E936B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2B8F10B-D40B-41EC-A13E-380B334AC40D}
+	EndGlobalSection
+EndGlobal

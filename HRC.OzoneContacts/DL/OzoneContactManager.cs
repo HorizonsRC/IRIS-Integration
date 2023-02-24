@@ -387,7 +387,8 @@ namespace HRC.OzoneContacts.DL
                     command.CommandText = string.Format(@"
                       SELECT cast(cp.agent_id as int) as ID
 			            FROM [{1}].dbo.Contact c (NOLOCK) 
-			            JOIN [{2}].dbo.[cont_person] cp (NOLOCK) ON cp.agent_id = c.MigrationSourceID
+			            JOIN [{2}].dbo.[cont_person] cp (NOLOCK) 
+                        ON cp.agent_id = c.MigrationSourceID
 		               WHERE c.Id = {0}
 	                ORDER BY cp.agent_id",
                         Id,

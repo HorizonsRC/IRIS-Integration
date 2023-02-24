@@ -46,3 +46,22 @@ E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csprojResolveAssemblyReference.cache
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.dll
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.pdb
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.dll.config
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.dll
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.pdb
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.dll
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.dll
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.dll
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.dll
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.dll
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.pdb
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.pdb
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.pdb
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.pdb
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.dll.config
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.pdb
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csproj.AssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csproj.CopyComplete
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.dll
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.pdb

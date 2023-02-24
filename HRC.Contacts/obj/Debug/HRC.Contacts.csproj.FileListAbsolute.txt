@@ -25,3 +25,12 @@ D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS In
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Contacts\obj\Debug\HRC.Contacts.csprojResolveAssemblyReference.cache
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Contacts\obj\Debug\HRC.Contacts.dll
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.Contacts\obj\Debug\HRC.Contacts.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.Contacts\bin\Debug\HRC.Contacts.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.Contacts\bin\Debug\HRC.Contacts.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.Contacts\bin\Debug\HRC.Common.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.Contacts\bin\Debug\HRC.Common.pdb
+D:\Documents\GithubLive\IRIS Integration\HRC.Contacts\obj\Debug\HRC.Contacts.csproj.AssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.Contacts\obj\Debug\HRC.Contacts.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\HRC.Contacts\obj\Debug\HRC.Contacts.csproj.CopyComplete
+D:\Documents\GithubLive\IRIS Integration\HRC.Contacts\obj\Debug\HRC.Contacts.dll
+D:\Documents\GithubLive\IRIS Integration\HRC.Contacts\obj\Debug\HRC.Contacts.pdb

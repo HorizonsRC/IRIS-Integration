@@ -32,3 +32,23 @@ E:\Source Code\Visual Studio Projects\IRIS Integration\OzoneHarness\OzoneHarness
 E:\Source Code\Visual Studio Projects\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.Form1.resources
 E:\Source Code\Visual Studio Projects\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.Properties.Resources.resources
 E:\Source Code\Visual Studio Projects\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.csproj.GenerateResource.Cache
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\OzoneHarness.exe.config
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\OzoneHarness.exe
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\OzoneHarness.pdb
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\HRC.Common.dll
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\HRC.Contacts.dll
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\HRC.OzoneContacts.dll
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\HRC.Framework.dll
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\HRC.Common.pdb
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\HRC.Contacts.pdb
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\HRC.OzoneContacts.pdb
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\HRC.OzoneContacts.dll.config
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\bin\Debug\HRC.Framework.pdb
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.csproj.AssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.Form1.resources
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.Properties.Resources.resources
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.csproj.GenerateResource.cache
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.csproj.CopyComplete
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.exe
+D:\Documents\GithubLive\IRIS Integration\OzoneHarness\OzoneHarness\obj\x86\Debug\OzoneHarness.pdb

@@ -1,0 +1,7 @@
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\Harness\obj\x86\Debug\Harness.csproj.AssemblyReference.cache
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\Harness\obj\x86\Debug\Harness.Form1.resources
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\Harness\obj\x86\Debug\Harness.Properties.Resources.resources
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\Harness\obj\x86\Debug\Harness.csproj.GenerateResource.cache
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\Harness\obj\x86\Debug\Harness.csproj.CoreCompileInputs.cache
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\Harness\obj\x86\Debug\ContactsServicesTest.exe
+D:\Documents\GithubLive\IRIS Integration\ContactsIntegration\Harness\obj\x86\Debug\ContactsServicesTest.pdb
