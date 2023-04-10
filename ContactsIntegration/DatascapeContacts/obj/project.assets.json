@@ -1,0 +1,138 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "HRC.Common/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/HRC.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HRC.Common.dll": {}
+        }
+      },
+      "HRC.Contacts/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "HRC.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HRC.Contacts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HRC.Contacts.dll": {}
+        }
+      },
+      "HRC.Framework/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "HRC.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HRC.Framework.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HRC.Framework.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HRC.Common/1.0.0": {
+      "type": "project",
+      "path": "../../HRC.Common/HRC.Common.csproj",
+      "msbuildProject": "../../HRC.Common/HRC.Common.csproj"
+    },
+    "HRC.Contacts/1.0.0": {
+      "type": "project",
+      "path": "../../HRC.Contacts/HRC.Contacts.csproj",
+      "msbuildProject": "../../HRC.Contacts/HRC.Contacts.csproj"
+    },
+    "HRC.Framework/1.0.0": {
+      "type": "project",
+      "path": "../../HRC.Framework/HRC.Framework.csproj",
+      "msbuildProject": "../../HRC.Framework/HRC.Framework.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "HRC.Common >= 1.0.0",
+      "HRC.Contacts >= 1.0.0",
+      "HRC.Framework >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\tpurdie\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\tpurdie\\Documents\\GIT\\IRIS-Integration\\ContactsIntegration\\DatascapeContacts\\HRC.DatascapeContacts.csproj",
+      "projectName": "HRC.DatascapeContacts",
+      "projectPath": "C:\\Users\\tpurdie\\Documents\\GIT\\IRIS-Integration\\ContactsIntegration\\DatascapeContacts\\HRC.DatascapeContacts.csproj",
+      "packagesPath": "C:\\Users\\tpurdie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tpurdie\\Documents\\GIT\\IRIS-Integration\\ContactsIntegration\\DatascapeContacts\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\tpurdie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {
+            "C:\\Users\\tpurdie\\Documents\\GIT\\IRIS-Integration\\HRC.Common\\HRC.Common.csproj": {
+              "projectPath": "C:\\Users\\tpurdie\\Documents\\GIT\\IRIS-Integration\\HRC.Common\\HRC.Common.csproj"
+            },
+            "C:\\Users\\tpurdie\\Documents\\GIT\\IRIS-Integration\\HRC.Contacts\\HRC.Contacts.csproj": {
+              "projectPath": "C:\\Users\\tpurdie\\Documents\\GIT\\IRIS-Integration\\HRC.Contacts\\HRC.Contacts.csproj"
+            },
+            "C:\\Users\\tpurdie\\Documents\\GIT\\IRIS-Integration\\HRC.Framework\\HRC.Framework.csproj": {
+              "projectPath": "C:\\Users\\tpurdie\\Documents\\GIT\\IRIS-Integration\\HRC.Framework\\HRC.Framework.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

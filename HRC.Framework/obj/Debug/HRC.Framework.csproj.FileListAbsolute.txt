@@ -36,3 +36,12 @@ D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.c
 D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CopyComplete
 D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.dll
 D:\Documents\GithubLive\IRIS Integration\HRC.Framework\obj\Debug\HRC.Framework.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Framework\bin\Debug\HRC.Framework.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Framework\bin\Debug\HRC.Framework.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Framework\bin\Debug\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Framework\bin\Debug\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Framework\obj\Debug\HRC.Framework.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Framework\obj\Debug\HRC.Framework.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Framework\obj\Debug\HRC.Framework.pdb

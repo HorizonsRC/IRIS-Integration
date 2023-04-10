@@ -33,3 +33,11 @@ D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.
 D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.csproj.CoreCompileInputs.cache
 D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.dll
 D:\Documents\GithubLive\IRIS Integration\HRC.Common\obj\Debug\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Common\bin\Debug\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Common\bin\Debug\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Common\obj\Debug\HRC.Common.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Common\obj\Debug\HRC.Common.Properties.Resources.resources
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Common\obj\Debug\HRC.Common.csproj.GenerateResource.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Common\obj\Debug\HRC.Common.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Common\obj\Debug\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Common\obj\Debug\HRC.Common.pdb

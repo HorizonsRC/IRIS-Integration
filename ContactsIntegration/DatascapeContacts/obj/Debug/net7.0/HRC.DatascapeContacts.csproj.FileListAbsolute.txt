@@ -1,0 +1,5 @@
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.AssemblyInfoInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.AssemblyInfo.cs
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.csproj.CoreCompileInputs.cache
