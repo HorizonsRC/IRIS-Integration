@@ -1,0 +1,64 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "HRC.DatascapeContacts/1.0.0": {
+        "dependencies": {
+          "HRC.Common": "1.0.0",
+          "HRC.Contacts": "1.0.0",
+          "HRC.Framework": "1.0.0"
+        },
+        "runtime": {
+          "HRC.DatascapeContacts.dll": {}
+        }
+      },
+      "HRC.Common/1.0.0": {
+        "runtime": {
+          "HRC.Common.dll": {}
+        }
+      },
+      "HRC.Contacts/1.0.0": {
+        "dependencies": {
+          "HRC.Common": "1.0.0"
+        },
+        "runtime": {
+          "HRC.Contacts.dll": {}
+        }
+      },
+      "HRC.Framework/1.0.0": {
+        "dependencies": {
+          "HRC.Common": "1.0.0"
+        },
+        "runtime": {
+          "HRC.Framework.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HRC.DatascapeContacts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HRC.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HRC.Contacts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HRC.Framework/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

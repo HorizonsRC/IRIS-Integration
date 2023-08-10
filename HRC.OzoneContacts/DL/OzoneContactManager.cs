@@ -104,7 +104,7 @@ namespace HRC.OzoneContacts.DL
             {
                 contactFields.Add(new Tuple<string, object>("CONTACT.TYPE", "I"));
                 contactFields.Add(new Tuple<string, object>("CONTACT.SURNAME", contact.Person.Base.Surname.Trim()));
-                contactFields.Add(new Tuple<string, object>("CONTACT.GIVEN", contact.Person.Base.FirstName.Trim()));
+                contactFields.Add(new Tuple<string, object>("CONTACT.GIVEN", $"{contact.Person.Base.FirstName} {contact.Person.Base.MiddleName}".Trim()));
                 contactFields.Add(new Tuple<string, object>("CONTACT.TITLE", contact.Person.Base.Title));
                 contactFields.Add(new Tuple<string, object>("CONTACT.ALIAS", contact.Person.Base.KnownBy));
                 contactFields.Add(new Tuple<string, object>("CONTACT.INIT", contact.Person.Base.Initials)); //this appears to be computed

@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialsIntegration", "FinancialsIntegration\FinancialsIntegration.csproj", "{9862D814-B975-45DF-9FC6-AB8A5F3EC2B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B5C9714C-5084-40F0-9905-F6015390BE39} = {B5C9714C-5084-40F0-9905-F6015390BE39}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harness", "Harness\Harness.csproj", "{14DCEC3E-8C91-4895-B7DE-FE89C0121DD0}"
 EndProject
@@ -12,6 +15,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRC.Framework", "..\HRC.Framework\HRC.Framework.csproj", "{46459D66-8BC6-4E75-B94C-698A1FF31A49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRC.IRIS", "..\HRC.IRIS\HRC.IRIS.csproj", "{BC1EF4E7-0207-4246-A2CB-ED7A39BC6572}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRC.DatascapeFinancials", "HRC.DatascapeFinancials\HRC.DatascapeFinancials.csproj", "{B5C9714C-5084-40F0-9905-F6015390BE39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,8 +80,23 @@ Global
 		{BC1EF4E7-0207-4246-A2CB-ED7A39BC6572}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{BC1EF4E7-0207-4246-A2CB-ED7A39BC6572}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{BC1EF4E7-0207-4246-A2CB-ED7A39BC6572}.Release|x86.ActiveCfg = Release|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Debug|x86.Build.0 = Debug|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Release|x86.ActiveCfg = Release|Any CPU
+		{B5C9714C-5084-40F0-9905-F6015390BE39}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D00DB98F-64BE-47DC-9A9C-8A2595B715C7}
 	EndGlobalSection
 EndGlobal

@@ -20,3 +20,42 @@ E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\
 E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.csprojResolveAssemblyReference.cache
 E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.dll
 E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\FinancialsIntegration.dll.config
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\FinancialsIntegration.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\FinancialsIntegration.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.DatascapeFinancials.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Framework.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.IRIS.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\Newtonsoft.Json.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\RestSharp.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Buffers.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Memory.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Numerics.Vectors.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Text.Encodings.Web.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Text.Json.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.ValueTuple.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.Framework.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.IRIS.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.DatascapeFinancials.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\HRC.DatascapeFinancials.dll.config
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\Newtonsoft.Json.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\RestSharp.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Buffers.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Memory.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Numerics.Vectors.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Text.Encodings.Web.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Text.Json.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\bin\System.ValueTuple.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\FinancialsIntegration\obj\Debug\FinancialsIntegration.pdb

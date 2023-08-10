@@ -10,17 +10,27 @@ using HRC.Common;
 using HRC.Common.Data;
 using HRC.Framework.BL;
 using Contacts = FinancialsIntegration.ContactsService;
-using Ozone = FinancialsIntegration.OzoneService;
 using System.Configuration;
 using System.Xml.Linq;
 using HRC.Common.Exceptions;
 using HRC.Common.Configuration;
 using System.Net.Mail;
 using HRC.IRIS.BL;
+using System.Xml.Serialization;
+using System.IO;
+using System.Xml;
+using System.Net;
+using RestSharp;
+using Newtonsoft.Json;
+using HRC.DatascapeFinancials;
+using HRC.DatascapeFinancials.DL;
+using HRC.DatascapeFinancials.BL;
+
 namespace FinancialsIntegration
 {    
     public class FinancialsIntegrationService : IFinancialsIntegrationService
     {
+        private static RestClient _client = new RestClient(new RestClientOptions(@"https://datascape.cloud/"));
         public CreateFinancialCustomerOutcome CreateFinancialCustomer(Contacts.ContactDetails contactDetails)
         {
             Logging.Write("CreateFinancialCustomer", string.Empty, string.Empty);
@@ -35,16 +45,17 @@ namespace FinancialsIntegration
 
         public CreateFinancialProjectOutcome CreateFinancialProject(RecordData recordData)
         {
-            Logging.Write("CreateFinancialProject", "Data Received:", string.Empty, "ObjectType: " + recordData.ObjectType
-                + ", SubClass1: " + recordData.Subclassification1 + ", SubClass2: " + recordData.Subclassification2 + ", IrisId: " + recordData.IrisID
-                + ", FINCProjectCode: " + recordData.FINProjectCode);
+            #region DebugrecordDataObject
+            XmlSerializer xsSubmit1 = new XmlSerializer(recordData.GetType());
+            StringWriter sww1 = new StringWriter();
+            XmlWriter writer1 = XmlWriter.Create(sww1);
+            xsSubmit1.Serialize(writer1, recordData);
+            var xml1 = sww1.ToString(); // Your xml
+            Logging.Write("CreateFinancialProject", "RecordData XML", "BEGIN", xml1);
+            #endregion
+
             CreateFinancialProjectOutcome outcome = new CreateFinancialProjectOutcome();
-            //recordData.IrisID = "REG-2013-20001-01";
-            //recordData.FINProjectCode = "CN0809";
-            //recordData.Subclassification1 = "33";
-            //recordData.Subclassification2 = "02";
-            //recordData.Description = "Test Only Job Copy- Hard Coded";
-            //recordData.ObjectType = "5";
+            Logging.Write("CreateFinancialProject", string.Empty, string.Empty);
             if (recordData.FINProjectCode.Length != 6)
             {
                 outcome.Success = false;
@@ -57,43 +68,42 @@ namespace FinancialsIntegration
             //string sDesc = recordData.IrisID + " " + recordData.Subclassification1 + " " + recordData.Subclassification2;
             //#BP 15/06/2016 Due to constraints on field length we can't use 'Resource Consent' so fallback is 'Regulatory'
             string sDesc = recordData.IrisID + " Regulatory";
-            string jobIdTemplate = "";
+            string jobGroup = "";
             string error001 = string.Format(@"An Error has occurred while processing the Create Financial Project Request for {0}.                                
                             Please refresh your browser and try again. If this error occurs again, contact your System Support team.", recordData.IrisID);
-
             string warning001 = @"A Financial Project has already been created to represent this Activity.                                
                                 Please use the ‘Select Financial Project’ to locate the applicable Project Number.";
-            Ozone.OzoneSoapClient client = new Ozone.OzoneSoapClient();
+            string warning002 = string.Format(@"Create Financial Project has not been configured for object type {0}.                                
+                            Please contact your System Support team if you believe this is a mistake.", recordData.ObjectType);
             try
             {
+
+
+
                 switch (recordData.ObjectType)
                 {
                     case "5": //Application
                     case "Application":
                         if (recordData.Subclassification1 == "33" || recordData.Subclassification1 == "Resource Consent")
                         {
-                            jobIdTemplate = "CN0001";
+                            jobGroup = "RCP";
                         }
                         else
                         {   //Generate WARNING.001
-                            jobIdTemplate = "WARNING.001";
+                            jobGroup = "WARNING.002";
                         }
                         break;
                     case "16":// Management Site
                     case "Management Site":
-                        jobIdTemplate = "MS0001";
-                        break;
                     case "15": //Programme
                     case "Programme":
-                        jobIdTemplate = "MP0001";
+                    case "20": //Request
+                    case "Request":
+                        jobGroup = "WARNING.002";
                         break;
                     case "12": //Regime
                     case "Regime":
-                        jobIdTemplate = "RM0001";
-                        break;
-                    case "20": //Request
-                    case "Request":
-                        jobIdTemplate = "RQ0001";
+                        jobGroup = "RCM";
                         break;
                     case "6": //Authorisations
                     case "Authorisations":
@@ -106,58 +116,116 @@ namespace FinancialsIntegration
                     case "Enfocement Action":
                     default:
                         //Generate Warning.001
-                        jobIdTemplate = "WARNING.001";
+                        jobGroup = "WARNING.002";
                         break;
                 }
-                if (jobIdTemplate == "WARNING.001")
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                RestRequest LookupRequest = new RestRequest($"/{ConfigurationManager.AppSettings["DatascapeEnvironment"]}/Custom/IRISFinancialProjectLookup?Filter=UniqueKeyValue%20like%20%60{recordData.FINProjectCode}%60", Method.Get);
+                LookupRequest.AddHeader("Authorization", "Basic SVJJU0FQSVVzZXI6elVJVk9Xc0k=");
+                
+                List<WorkOrder> WorkOrders = _client.GetAsync<List<WorkOrder>>(LookupRequest).Result;
+                if (WorkOrders.Any()) jobGroup = "WARNING.001";
+
+                if (jobGroup == "WARNING.001")
                 { //failed business rules
                     outcome.Success = false;
                     outcome.ErrorMessage = warning001;
                     Logging.Write("CreateFinancialProject","WARNING.001",string.Empty,warning001);
-                    //TODO Log warning
+                    return outcome;
                 }
-                else if (jobIdTemplate == "ERROR.001")
+                if (jobGroup == "WARNING.002")
+                { //has not been configured in Datascape
+                    outcome.Success = false;
+                    outcome.ErrorMessage = warning002;
+                    Logging.Write("CreateFinancialProject", "WARNING.002", string.Empty, warning002);
+                    return outcome;
+                }
+                else if (jobGroup == "ERROR.001")
                 { //error occurred
                     outcome.Success = false;
                     outcome.ErrorMessage = error001;
                     Logging.Write("CreateFinancialProject", "ERROR.001", string.Empty, error001);
-                    //TODO Log error
+                    return outcome;
                 }
                 else
-                { //CreateJob via CopyJob
-
+                { 
                     string jobId = recordData.FINProjectCode;
-                    string token = null;
-                    //token = string.IsNullOrEmpty(token) ? client.AuthenticateWindows(ConfigurationManager.AppSettings["OzoneWebServiceURL"]) : token;
-                    token = string.IsNullOrEmpty(token) ? client.Authenticate(ConfigurationManager.AppSettings["OzoneWebServiceURL"], ConfigurationManager.AppSettings["IRISOzoneUser"], ConfigurationManager.AppSettings["IRISOzonePassword"]) : token;
-                    string ozoneArguments = jobIdTemplate + "|" + jobId + "|" + sDesc + "|" + recordData.Description + "|";
-                    string returnXmlSSD = client.CallFunction(token, "JCS.COPY.JOB", ozoneArguments);
-                    if (string.IsNullOrEmpty(returnXmlSSD) || string.IsNullOrEmpty(returnXmlSSD.Replace(ozoneArguments,string.Empty).Trim()))
-                    {//assume success
-                        outcome.Success = true;
-                        outcome.ErrorMessage = string.Empty;
-                        //TODO:Job Copy Success  SET [IRISObject.IsFINProjectCodeConfirmed] to 'YES' (bit field therefore set to 1)
-                        try
-                        {
-                            Logging.Write("SetIsFinProjectCodeConfirmed", recordData.IrisID, string.Empty);
-                            IRISObject.SetIsFinProjectCodeConfirmed(recordData.IrisID, true);
-                        }
-                        catch (Exception ex)
-                        {
-                            Logging.Write("SetIsFinProjectCodeConfirmed", string.Empty, string.Empty, ExceptionInformation.GetExceptionStack(ex));
-                        }
 
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                    RestRequest request = new RestRequest($"/{ConfigurationManager.AppSettings["DatascapeEnvironment"]}/Custom/IRISFinancialProjectSubmission/SendMessage", Method.Post);
+                    request.AddHeader("Content-Type", "application/json");
+                    request.AddHeader("Authorization", "Basic SVJJU0FQSVVzZXI6elVJVk9Xc0k=");
+                    var json = JsonConvert.SerializeObject(new FinanceProjectPayload {
+                        FinanceProject = new FinanceProject {
+                            DatascapeJobGroup = jobGroup,
+                            Description = sDesc,
+                            LongDescription = recordData.Description,
+                            ProjectCode = jobId
+                        } 
+                    });
+                    request.AddBody(json);
+                    RestResponse response = _client.ExecuteAsync(request).Result;
+
+                    string responseContent = response.Content;
+                    string saveResultStatus = "";
+                    string DatascapeErrorMessage = "";
+
+
+                    switch (response.ResponseStatus)
+                    {
+                        case ResponseStatus.Completed:
+                            // Request was successfully executed, handle the response accordingly
+                            break;
+                        case ResponseStatus.Error:
+                            // An error occurred during request execution, handle the error
+                            saveResultStatus = "FAILED";
+                            DatascapeErrorMessage = responseContent ?? "";
+                            throw response.ErrorException;
+                        case ResponseStatus.TimedOut:
+                            // Request timed out, handle the timeout scenario
+                            saveResultStatus = "FAILED";
+                            DatascapeErrorMessage = responseContent ?? "";
+                            throw new Exception($"{response.ErrorException.Message} {responseContent ?? ""}");
+                        default:
+                            // Handle unknown or unsupported response status
+                            saveResultStatus = "FAILED";
+                            DatascapeErrorMessage = responseContent ?? "";
+                            throw new Exception($"{response.ErrorException.Message} {responseContent ?? ""}");
                     }
-                    else
-                    {//Job Copy Fails
+
+                    // Check StatusCode
+                    switch (response.StatusCode)
+                    {
+                        case HttpStatusCode.OK:
+                            // Request was successful, handle the 200 OK scenario
+                            saveResultStatus = "SUCCESS";
+                            break;
+                        case HttpStatusCode.BadRequest:
+                        case HttpStatusCode.Unauthorized:
+                        case HttpStatusCode.NotFound:
+                        case (HttpStatusCode)481: // Security Error
+                        case (HttpStatusCode)482: // Validation Error
+                        case (HttpStatusCode)483: // Execution Error
+                                                  // Handle specific status codes with common error handling logic
+                            saveResultStatus = "FAILED";
+                            DatascapeErrorMessage = responseContent ?? "";
+                            throw new Exception($"{response.StatusDescription} {responseContent ?? ""}");
+                        default:
+                            // Handle other status codes
+                            saveResultStatus = "FAILED";
+                            DatascapeErrorMessage = responseContent ?? "";
+                            throw new Exception($"{response.StatusDescription} {responseContent ?? ""}");
+                    }
+                    if (saveResultStatus == "FAILED")
+                    {
                         outcome.Success = false;
-                        outcome.ErrorMessage = returnXmlSSD.Replace(ozoneArguments,"").Trim();
+                        outcome.ErrorMessage = error001;
+
                         Logging.Write("CreateFinancialProject", "ERROR", "Job Copy Failed", outcome.ErrorMessage);
-                        //TODO: error notification should be sent to the following addresses
-                        /****/
+
                         string jobCopyFailEmailTo = ConfigurationManager.AppSettings["JobCopyFailEmailTo"];
                         string body = "The following error was returned as part of creating a financial project for " + recordData.IrisID + Environment.NewLine + Environment.NewLine
-                            + string.Format(@"{0}", outcome.ErrorMessage) + Environment.NewLine + ozoneArguments;
+                            + string.Format(@"{0}", outcome.ErrorMessage) ;
                         string applicationName = ConfigurationManager.AppSettings["ApplicationName"];
                         //string displayName = string.Format("{0} Logs", Application.ProductName);
                         string subject = "Error on Job Copy function for " + recordData.IrisID;
@@ -167,8 +235,26 @@ namespace FinancialsIntegration
                             .SetSubject(subject)
                             .SetBody(body)
                             .Send();
-                        
+
+                        return outcome;
                     }
+                    else
+                    {
+                        outcome.Success = true;
+                        try
+                        {
+                            Logging.Write("SetIsFinProjectCodeConfirmed", recordData.IrisID, string.Empty);
+                            IRISObject.SetIsFinProjectCodeConfirmed(recordData.IrisID, true);
+                        }
+                        catch (Exception ex)
+                        {
+                            Logging.Write("SetIsFinProjectCodeConfirmed", string.Empty, string.Empty, ExceptionInformation.GetExceptionStack(ex));
+                        }
+                        
+                        return outcome;
+                    }
+
+                    
                 }
             }
             catch (Exception ex)
@@ -179,19 +265,9 @@ namespace FinancialsIntegration
                 //TODO Log error
                 //TODO return an IRISServiceFaultContract
             }
-            finally
-            {
-                if (client.State == CommunicationState.Faulted)
-                {
-                    client.Abort();
-                }
-                else
-                {
-                    client.Close();
-                }
-            }
 
-            Logging.Write("CreateFinancialProject", "Template: " + jobIdTemplate, string.Empty, "ObjectType: " + recordData.ObjectType
+
+            Logging.Write("CreateFinancialProject", "Template: " + jobGroup, string.Empty, "ObjectType: " + recordData.ObjectType
                 + ", SubClass1: " + recordData.Subclassification1 + ", SubClass2: " +recordData.Subclassification2 + ", IrisId: " + recordData.IrisID
                 + ", FINCProjectCode: " + recordData.FINProjectCode);
     
@@ -212,67 +288,39 @@ namespace FinancialsIntegration
 
             Logging.Write("FindFinancialProject", "Data Received", searchCriteria.ToString());
             string criteria = "";
-            //string searchText = searchCriteria.SearchText;
-            //string finCustomerCode = searchCriteria.FINCustomerCode;
 
             string finCustomerCode = searchCriteria[FinancialProjectSearchCriteriaKey.FINCustomerCode];
             string searchText = searchCriteria[FinancialProjectSearchCriteriaKey.SearchText];
 
             criteria += "FINCustomerCode: " + finCustomerCode;
-            //criteria += ", ObjectType: " + searchCriteria.ObjectType;
             criteria += ", SearchText: " + searchText;
-            //criteria += ", SubClassification1: " + searchCriteria.SubClassification1;
-            //criteria += ", SubClassification2: " + searchCriteria.SubClassification2;
-            //criteria += ", SubClassification3: " + searchCriteria.SubClassification3;
-            //criteria += "" + searchCriteria.IRISID; //To be added when implemented
-            Logging.Write("FindFinancialProject", "Data Received", criteria);
-            
-            //DUMMY search to remove once we start receiving valid data
-            //searchText = "110";
+
+            Logging.Write("FindFinancialProject", "Search Criteria", criteria);
+
             string customerName = "";
             FinancialProjects projects = new FinancialProjects();
             if (string.IsNullOrEmpty(searchText)) return projects;
             string returnedData = "";
-            Ozone.OzoneSoapClient client = new Ozone.OzoneSoapClient();
+
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            RestRequest request = new RestRequest($"/{ConfigurationManager.AppSettings["DatascapeEnvironment"]}/Custom/IRISFinancialProjectLookup?Filter=UniqueKeyValue%20like%20%60{searchText}%60%20or%20Description%20like%20%60{searchText}%60%20or%20%23Custom.IRISRCMLongDescription.Value%20like%20%60{searchText}%60%20or%20%23Custom.IRISRCPLongDescription.Value%20like%20%60{searchText}%60%20or%20%23Custom.IRISRCPAdditionalCodes.Value2%20like%20%60{searchText}%60%20or%20%23Custom.IRISRCMAdditionalCodes.Value2%20like%20%60{searchText}%60", Method.Get);
+            request.AddHeader("Authorization", "Basic SVJJU0FQSVVzZXI6elVJVk9Xc0k=");
             try
             {
-                string token = null;
-                //token = string.IsNullOrEmpty(token) ? client.AuthenticateWindows(ConfigurationManager.AppSettings["OzoneWebServiceURL"]) : token;
-                token = string.IsNullOrEmpty(token) ? client.Authenticate(ConfigurationManager.AppSettings["OzoneWebServiceURL"], ConfigurationManager.AppSettings["IRISOzoneUser"], ConfigurationManager.AppSettings["IRISOzonePassword"]) : token;
-                
-                string busObject = "JCS.JOB";
-                string dict = "JCS.JOB.ID|JCS.JOB.SDESC|JCS.JOB.DESC";
-                string statement = string.Format("JCS.JOB.ID LIKE \"...{0}...\" OR JCS.JOB.SDESC LIKE \"...{0}...\"  OR JCS.JOB.DESC LIKE \"...{0}...\"", searchText);
-                string format = "ORIGEN";
-
-                string returnXmlSSD = client.SearchSelectData(token, busObject, dict, statement, format, true);
-                
-                XElement xmlData = XElement.Parse(returnXmlSSD);
-                XElement myData = xmlData.Element("data");
-                foreach (XElement item in myData.Elements())
+                List<WorkOrder> WorkOrders = _client.GetAsync<List<WorkOrder>>(request).Result;
+                foreach (WorkOrder WO in WorkOrders)
                 {
-                    FinancialProject finProject = new FinancialProject();
-                    XElement id = item.Element("id");
-                    finProject.ProjectCode = id.Value.ToString();
-                    finProject.CustomerName = customerName;
-                    finProject.FINCustomerCode = finCustomerCode;
-                    returnedData += string.Format("\r\nid: {0} ", id.Value.ToString());
-                    XElement itemGroup = item.Element("group");
-                    foreach (XElement dictData in itemGroup.Elements("dictionary"))
+                    FinancialProject finProject = new FinancialProject
                     {
-                        switch (dictData.Attribute("id").Value.ToString()) {
-                            case "JCS.JOB.ID":
-                                finProject.ProjectCode = dictData.Element("value").Value.ToString();
-                                break;
-                            case "JCS.JOB.SDESC":
-                                finProject.ProjectName = dictData.Element("value").Value.ToString();
-                                break;
-                            case "JCS.JOB.DESC":
-                                finProject.Details = dictData.Element("value").Value.ToString();
-                                break;
-                        }
-                        returnedData += "\r\n - " + dictData.Attribute("id").Value.ToString() + ": " + dictData.Element("value").Value.ToString();
-                    }
+                        ProjectCode = WO.JobKey.Split('.')[1],
+                        ProjectName = WO.Description,
+                        FINCustomerCode = "",
+                        CustomerName = "",
+                        Details = WO.RCM.LongDescription == "" ? WO.RCP.LongDescription : WO.RCM.LongDescription
+
+                    };
+
                     projects.Add(finProject);
                 }
             }
@@ -280,23 +328,15 @@ namespace FinancialsIntegration
             {
                 Logging.Write("FindFinancialProject", "An error has occured", string.Empty, ex.Message);
             }
-            finally
-            {
-                if (client.State == CommunicationState.Faulted)
-                {
-                    client.Abort();
-                }
-                else
-                {
-                    client.Close();
-                }
-            }
-          
+
             return projects;
+
         }
+
         private string GetSafeString(string value){
             return string.IsNullOrEmpty(value) ? "" : value;
         }
+
         public FinancialTimeCodes GetTimeRecordingCodes(string FINProjectCode)
         {
             Logging.Write("GetTimeRecordingCodes", "FINProjectCode: " + FINProjectCode, string.Empty);
@@ -308,61 +348,31 @@ namespace FinancialsIntegration
                 return codes;
             }
 
-            string returnedData = "";
-            Ozone.OzoneSoapClient client = new Ozone.OzoneSoapClient();
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            RestRequest request = new RestRequest($"/{ConfigurationManager.AppSettings["DatascapeEnvironment"]}/Custom/IRISJobActivityLookup?Filter=%28Job.%23Custom.IRISRCPAdditionalCodes.Value2%20eq%20%60{FINProjectCode}%60%20or%20Job.%23Custom.IRISRCMAdditionalCodes.Value2%20eq%20%60{FINProjectCode}%60%29%20or%20%28Job.Number%20eq%20%60{FINProjectCode}%60%29", Method.Get);
+            request.AddHeader("Authorization", "Basic SVJJU0FQSVVzZXI6elVJVk9Xc0k=");
+
             try
             {
-                string token = null;
-                //token = string.IsNullOrEmpty(token) ? client.AuthenticateWindows(ConfigurationManager.AppSettings["OzoneWebServiceURL"]) : token;
-                token = string.IsNullOrEmpty(token) ? client.Authenticate(ConfigurationManager.AppSettings["OzoneWebServiceURL"], ConfigurationManager.AppSettings["IRISOzoneUser"], ConfigurationManager.AppSettings["IRISOzonePassword"]) : token;
-                string busObject = "JCS.JOB.SUB";
-                string dict = "JCS.SJ.ID|JCS.SJ.ID1|JCS.SJ.ID2|JCS.SJ.DESC";
-                string statement = string.Format("JCS.SJ.ID1 LIKE \"{0}\" AND JCS.SJ.CLOSED = \"\"", FINProjectCode);
-                string format = "ORIGEN";
-                string returnXmlSSD = client.SearchSelectData(token, busObject, dict, statement, format, true);
-
-                XElement xmlData = XElement.Parse(returnXmlSSD);
-                XElement myData = xmlData.Element("data");
-                foreach (XElement item in myData.Elements())
+                List<JobActivity> JobActivities = _client.GetAsync<List<JobActivity>>(request).Result;
+                foreach (JobActivity Activity in JobActivities)
                 {
-                    FinancialTimeCode timeCode = new FinancialTimeCode();
-                    XElement id = item.Element("id");
-                    returnedData += string.Format("\r\nid: {0} ", id.Value.ToString());
-                    XElement itemGroup = item.Element("group");
-                    foreach (XElement dictData in itemGroup.Elements("dictionary"))
+                    FinancialTimeCode TimeCode = new FinancialTimeCode
                     {
-                        switch (dictData.Attribute("id").Value.ToString())
-                        {
-                            //case "JCS.SJ.ID":
-                            //    timeCode.TimeCodeNumber =  dictData.Element("value").Value.ToString();
-                            //    break;
-                            case "JCS.SJ.DESC":
-                                timeCode.TimeCodeName = dictData.Element("value").Value.ToString();
-                                break;
-                            case "JCS.SJ.ID2":
-                                timeCode.TimeCodeNumber = (long) Convert.ToSingle(dictData.Element("value").Value.ToString());
-                                break;
-                        }
-                        returnedData += "\r\n - " + dictData.Attribute("id").Value.ToString() + ": " + dictData.Element("value").Value.ToString();
-                    }
-                    codes.Add(timeCode);
+                        TimeCodeNumber = Convert.ToInt64(Activity.Code.Split('.')[0]),
+                        TimeCodeName = Activity.Name
+
+                    };
+
+                    codes.Add(TimeCode);
                 }
             }
             catch (Exception ex)
             {
                 Logging.Write("GetTimeRecordingCodes", "An error has occured", string.Empty, ex.Message);
             }
-            finally
-            {
-                if (client.State == CommunicationState.Faulted)
-                {
-                    client.Abort();
-                }
-                else
-                {
-                    client.Close();
-                }
-            }
+
+
             Logging.Write("GetTimeRecordingCodes", "FINProjectCode: " + GetSafeString(FINProjectCode), "NoOfCodes:" + codes.Count);
             return codes;
         }

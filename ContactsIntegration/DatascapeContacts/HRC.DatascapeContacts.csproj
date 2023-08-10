@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DL\" />
+    <ProjectReference Include="..\..\HRC.Common\HRC.Common.csproj" />
+    <ProjectReference Include="..\..\HRC.Contacts\HRC.Contacts.csproj" />
+    <ProjectReference Include="..\..\HRC.Framework\HRC.Framework.csproj" />
   </ItemGroup>
 
 </Project>

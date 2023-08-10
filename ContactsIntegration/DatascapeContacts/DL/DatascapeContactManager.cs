@@ -8,6 +8,6 @@ namespace HRC.DatascapeContacts.DL
 {
     internal class DatascapeContactManager
     {
-
+        
     }
 }

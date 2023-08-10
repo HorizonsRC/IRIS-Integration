@@ -24,6 +24,8 @@ namespace HRC.Contacts.BL
 
         public string Prologue { get; set; }        
 
+        public string RuralDeliveryNumber { get; set; }
+
         public string AddressNumberText { get; set; }
         public string StreetAlpha { get; set; }
         public int HouseNumber { get; set; }

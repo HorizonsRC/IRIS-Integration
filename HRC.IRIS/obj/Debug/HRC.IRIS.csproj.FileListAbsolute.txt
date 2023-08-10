@@ -37,3 +37,12 @@ D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.csproj.Core
 D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.csproj.CopyComplete
 D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.dll
 D:\Documents\GithubLive\IRIS Integration\HRC.IRIS\obj\Debug\HRC.IRIS.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\bin\Debug\HRC.IRIS.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\bin\Debug\HRC.IRIS.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\bin\Debug\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\bin\Debug\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Debug\HRC.IRIS.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Debug\HRC.IRIS.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Debug\HRC.IRIS.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Debug\HRC.IRIS.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Debug\HRC.IRIS.pdb

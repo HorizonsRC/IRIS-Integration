@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsIntegration", "ContactsIntegration\ContactsIntegration.csproj", "{70B9CC26-6371-4835-9EB4-4CE2D44CF894}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279} = {D17836DB-999F-4B83-8CCF-C2FF0CD00279}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRC.PowerBuilderContacts", "..\HRC.PowerBuilderContacts\HRC.PowerBuilderContacts.csproj", "{4047D56D-6116-4D90-9DC4-7C760AF4D60B}"
 EndProject
@@ -15,10 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRC.OzoneContacts", "..\HRC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRC.Framework", "..\HRC.Framework\HRC.Framework.csproj", "{46459D66-8BC6-4E75-B94C-698A1FF31A49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRC.DatascapeContacts", "DatascapeContacts\HRC.DatascapeContacts.csproj", "{87C13871-6F39-4C9C-BA5C-4366A1C508A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRC.DatascapeContacts", "DatascapeContactsFramework\HRC.DatascapeContacts.csproj", "{D17836DB-999F-4B83-8CCF-C2FF0CD00279}"
 	ProjectSection(ProjectDependencies) = postProject
-		{46459D66-8BC6-4E75-B94C-698A1FF31A49} = {46459D66-8BC6-4E75-B94C-698A1FF31A49}
 		{586CBD33-425A-49E7-994A-05D12A6FC7FD} = {586CBD33-425A-49E7-994A-05D12A6FC7FD}
+		{46459D66-8BC6-4E75-B94C-698A1FF31A49} = {46459D66-8BC6-4E75-B94C-698A1FF31A49}
 		{D0D4E8CE-642B-4E73-BA1C-8E318F32062B} = {D0D4E8CE-642B-4E73-BA1C-8E318F32062B}
 	EndProjectSection
 EndProject
@@ -94,18 +97,18 @@ Global
 		{46459D66-8BC6-4E75-B94C-698A1FF31A49}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{46459D66-8BC6-4E75-B94C-698A1FF31A49}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{46459D66-8BC6-4E75-B94C-698A1FF31A49}.Release|x86.ActiveCfg = Release|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Debug|x86.Build.0 = Debug|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Release|x86.ActiveCfg = Release|Any CPU
-		{87C13871-6F39-4C9C-BA5C-4366A1C508A4}.Release|x86.Build.0 = Release|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Debug|x86.Build.0 = Debug|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Release|x86.ActiveCfg = Release|Any CPU
+		{D17836DB-999F-4B83-8CCF-C2FF0CD00279}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

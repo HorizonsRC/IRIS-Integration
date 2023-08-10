@@ -24,3 +24,16 @@ E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\bin\Debug\Harness.exe.config
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.exe
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.Form1.resources
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.Properties.Resources.resources
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.csproj.GenerateResource.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.exe
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\bin\Debug\Harness.exe.config
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\bin\Debug\Harness.exe
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\bin\Debug\Harness.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\bin\Debug\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\bin\Debug\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\FinancialsIntegration\Harness\obj\x86\Debug\Harness.csproj.CopyComplete

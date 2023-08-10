@@ -1,0 +1,11 @@
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\bin\Release\HRC.Contacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\bin\Release\HRC.Contacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\bin\Release\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\bin\Release\Newtonsoft.Json.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\bin\Release\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\bin\Release\Newtonsoft.Json.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\obj\Release\HRC.Contacts.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\obj\Release\HRC.Contacts.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\obj\Release\HRC.Contacts.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\obj\Release\HRC.Contacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\obj\Release\HRC.Contacts.pdb

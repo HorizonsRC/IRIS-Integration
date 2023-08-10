@@ -7,19 +7,18 @@ using System.ServiceModel.Web;
 using System.Text;
 
 using ContactsIntegration.BL;
-using ContactsIntegration.ContactsService;
 using HRC.Framework.BL;
 using HRC.PowerBuilderContacts.BL;
 using HRC.OzoneContacts.BL;
+using HRC.DatascapeContacts.BL;
 using HRC.Common.Exceptions;
 using System.Configuration;
-using Ozone = ContactsIntegration.OzoneService;
 using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 using System.Data.SqlClient;
 using HRC.Common.Data;
-
+using System.Threading.Tasks;
 
 namespace ContactsIntegration
 {    
@@ -28,16 +27,18 @@ namespace ContactsIntegration
         None,
         PowerBuilder,
         Ozone,
-        Both
+        Datascape,
+        All
     }
     internal enum OtherIdentifierContext{
         PowerBuilderContactId,
-        OzoneContactId
+        OzoneContactId,
+        DatascapeContactId
     }
 
     public class ContactsIntegrationService : IContactsIntegrationService
     {
-        private static ContactSaveMethod contactSaveMethod = ContactSaveMethod.Both;
+        private static ContactSaveMethod contactSaveMethod = ContactSaveMethod.All;
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         public CreateContactOutcome CreateContact(ContactDetails contactDetails)
@@ -64,21 +65,29 @@ namespace ContactsIntegration
                     outcome = AddPowerBuilderContact(contactDetails, ref outcome);
             
                 }
+                else if (contactSaveMethod == ContactSaveMethod.Datascape) //save directly to Datascape only
+                {
+                    Logging.Write("CreateContact", "Datascape Only", string.Empty, string.Empty, contactDetails.ContactID);
+                    AddDatascapeContact(contactDetails, ref outcome);
+                    //outcome.FINCustomerCode = "";
+                    
+                }
                 else if (contactSaveMethod == ContactSaveMethod.Ozone) //save directly to Ozone only
                 {
                     Logging.Write("CreateContact", "Ozone Only", string.Empty, string.Empty, contactDetails.ContactID);
                     AddOzoneContact(contactDetails, ref outcome);
                     //outcome.FINCustomerCode = "";
                     outcome.Success = true;
-                    
+
                 }
-                else if (contactSaveMethod == ContactSaveMethod.Both) //save to both PowerBuilder and Ozone               
+                else if (contactSaveMethod == ContactSaveMethod.All) //save to PowerBuilder, Ozone and Datascape               
                 {
                     Logging.Write("CreateContact", "PowerBuilder 4.2 (Both)", string.Empty, string.Empty, contactDetails.ContactID);
-                    outcome = AddPowerBuilderContact(contactDetails, ref outcome);           
-                    AddOzoneContact(contactDetails, ref outcome);              
+                    outcome = AddPowerBuilderContact(contactDetails, ref outcome);
+                    AddOzoneContact(contactDetails, ref outcome);
+                    AddDatascapeContact(contactDetails, ref outcome);              
                 }
-                outcome.Success = true;
+                //outcome.Success = true;
                 
 
             }
@@ -86,7 +95,7 @@ namespace ContactsIntegration
             {
                 outcome.Success = false;
                 outcome.ErrorMessage = "CreateContact Error: " + ExceptionInformation.GetExceptionStack(ex);
-                Logging.Write("CreateContact", "Error", ex.Message.Substring(0, 200), ExceptionInformation.GetExceptionStack(ex), contactDetails.ContactID);
+                Logging.Write("CreateContact", "Error", ex.Message.Substring(0, ex.Message.Length > 200 ? 200 : ex.Message.Length), ExceptionInformation.GetExceptionStack(ex), contactDetails.ContactID);
                 //??? IRISServiceFaultContract?
 
                 /* *
@@ -147,6 +156,31 @@ namespace ContactsIntegration
             }
         }
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        private static void AddDatascapeContact(ContactDetails contactDetails, ref CreateContactOutcome outcome)
+        {
+            //TODO
+            Logging.Write("CreateContact", "AddDatascapeContact", string.Empty, contactDetails.ContactID);
+            DatascapeContact ContactDatascape = Map.IRISContactToDatascapeContact(contactDetails);
+
+            string DatascapeContactID = "";
+            string DatascapeErrorMessage = "";
+            string DatascapeSaveStatus = ContactDatascape.SaveToDatascape(ref DatascapeContactID, ref DatascapeErrorMessage);
+            Logging.Write("CreateContact", "Datascape Save Status", DatascapeSaveStatus, string.Empty, contactDetails.ContactID);
+
+            if (DatascapeSaveStatus.ToUpper() == "FAILED")
+            {
+                outcome.ErrorMessage += (string.IsNullOrEmpty(outcome.ErrorMessage) ? "" : ",") + " [FAILED to Save Contact to Datascape]";
+                Logging.Write("CreateContact", "Datascape Error Message",  string.Empty, DatascapeErrorMessage, contactDetails.ContactID);
+            }
+            else
+            {
+                Logging.Write("CreateContact", $"DatascapeID: {DatascapeContactID}", string.Empty, string.Empty, contactDetails.ContactID);
+                addOtherIdentifier(ref outcome, OtherIdentifierContext.DatascapeContactId, DatascapeContactID);
+                outcome.Success = true;
+            }
+            
+        }
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         public UpdateContactOutcome UpdateContact(ContactDetails contactDetails, OtherIdentifiers contactOtherIdentifiers, CDFs contactCDFs)
         {
 
@@ -156,13 +190,22 @@ namespace ContactsIntegration
             XmlWriter writer1 = XmlWriter.Create(sww1);
             xsSubmit1.Serialize(writer1, contactDetails);
             var xml1 = sww1.ToString(); // Your xml
-            Logging.Write("UpdateContact", "ContactDetails XML", "BEGIN", xml1, contactDetails.ContactID); 
+            Logging.Write("UpdateContact", "ContactDetails XML", "BEGIN", xml1, contactDetails.ContactID);
+            #endregion
+            #region DebugOtherIdentifierObject
+            XmlSerializer xsSubmit2 = new XmlSerializer(contactOtherIdentifiers.GetType());
+            StringWriter sww2 = new StringWriter();
+            XmlWriter writer2 = XmlWriter.Create(sww2);
+            xsSubmit2.Serialize(writer2, contactOtherIdentifiers);
+            var xml2 = sww2.ToString(); // Your xml
+            Logging.Write("UpdateContact", "ContactOtherIdentifiers XML", "BEGIN", xml2, contactDetails.ContactID);
             #endregion
 
 
             UpdateContactOutcome outcome = new UpdateContactOutcome();
             string PBContactId = "";
             string ozoneContactId = "NEW";
+            string DatascapeNumber = "";
             outcome.ErrorMessage = string.Empty; 
             try
             {
@@ -178,6 +221,10 @@ namespace ContactsIntegration
                     if (otherId.Context == "PowerBuilderID")
                     {
                         PBContactId = otherId.Value;
+                    }
+                    if (otherId.Context == "DatascapeID")
+                    {
+                        DatascapeNumber = otherId.Value;
                     }
                     else if (otherId.Context == "OzoneID")
                     {
@@ -215,10 +262,26 @@ namespace ContactsIntegration
                     
                     //determine outcome
                 }
-                else if (contactSaveMethod == ContactSaveMethod.Both)
+                else if (contactSaveMethod == ContactSaveMethod.Datascape)
+                {
+                    Logging.Write("UpdateContact", "Datascape Only", string.Empty, contactDetails.ContactID);
+
+                    UpdateDatascapeContact(contactDetails, DatascapeNumber, ref outcome);
+                    if (string.IsNullOrEmpty(outcome.ErrorMessage))
+                    {
+                        outcome.Success = true;
+                    }
+                    else
+                    {
+                        outcome.Success = false;
+                    }
+
+                    //determine outcome
+                }
+                else if (contactSaveMethod == ContactSaveMethod.All)
                 {
                     //save directly to PowerBuilder Contacts
-                    Logging.Write("UpdateContact", "Powerbuilder 1.2 (Both)", string.Empty, contactDetails.ContactID);
+                    Logging.Write("UpdateContact", "All", string.Empty, contactDetails.ContactID);
                     PBContact contact = Map.IRISContactToPowerBuilderContact(contactDetails);
                    
 
@@ -230,6 +293,7 @@ namespace ContactsIntegration
                     var xml = sww.ToString(); // Your xml
                     Logging.Write("UpdateContact", "Updated PB Id", id.ToString() + " - " + PBContactId, xml, contactDetails.ContactID);
                     UpdateOzoneContact(contactDetails, ozoneContactId, ref outcome);
+                    UpdateDatascapeContact(contactDetails, DatascapeNumber, ref outcome);
                     
                     if (string.IsNullOrEmpty(outcome.ErrorMessage)){
                         outcome.Success = true;         
@@ -242,7 +306,7 @@ namespace ContactsIntegration
             catch (Exception ex)
             {
                 outcome.Success = false;
-                outcome.ErrorMessage = "UpdateContact Error: " + ex.Message;
+                outcome.ErrorMessage = "UpdateContact Error: " + ex.StackTrace;//ex.Message;
                 Logging.Write("UpdateContact", "Error", string.Empty, ExceptionInformation.GetExceptionStack(ex), contactDetails.ContactID);
                 //??? IRISServiceFaultContract?
 
@@ -287,6 +351,32 @@ namespace ContactsIntegration
             }
         }
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        private static void UpdateDatascapeContact(ContactDetails contactDetails, string DatascapeContactNumber, ref UpdateContactOutcome outcome)
+        {
+
+            DatascapeContact contact = Map.IRISContactToDatascapeContact(contactDetails);
+            string DatascapeContactID = DatascapeContactNumber;
+
+            //contact.ManageAccountModifications(ref DatascapeContactNumber);
+            contact.ManageContactInfoStatus(ref DatascapeContactID);
+
+            Logging.Write("SaveToDatascape", "Update Datascape Contact", string.Empty, DatascapeContactNumber);
+            string DatascapeErrorMessage = "";
+            string DatascapeSaveStatus = contact.SaveToDatascape(ref DatascapeContactID, ref DatascapeErrorMessage);
+
+            if (DatascapeSaveStatus.ToUpper() == "FAILED")
+            {
+                outcome.ErrorMessage = outcome.ErrorMessage + (string.IsNullOrEmpty(outcome.ErrorMessage) ? "" : ", ") + "[Failed to Update Datascape Contact] - " + DatascapeErrorMessage;
+                Logging.Write("UpdateContact", "Datascape SaveStatus:" + DatascapeSaveStatus + "*", string.Empty, outcome.ErrorMessage, contactDetails.ContactID);
+            }
+            else
+            {
+                Logging.Write("UpdateContact", "Datascape SaveStatus:" + DatascapeSaveStatus + "*", string.Empty, outcome.ErrorMessage, contactDetails.ContactID);
+            }
+
+        
+        }
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         private static void addOtherIdentifier(ref CreateContactOutcome outcome, OtherIdentifierContext context, string value)
         {
             OtherIdentifier otherId = new OtherIdentifier();
@@ -298,6 +388,9 @@ namespace ContactsIntegration
                 case OtherIdentifierContext.OzoneContactId:
                     otherId.Context = "OzoneID";
                     break;
+                case OtherIdentifierContext.DatascapeContactId:
+                    otherId.Context = "DatascapeID";
+                        break;
                 default:
                     otherId.Context = "Unknown Identifier";
                     break;
@@ -321,9 +414,10 @@ namespace ContactsIntegration
         private void getContactSaveMethod()
         {
             string contactSaveMethodConfig = ConfigurationManager.AppSettings["ContactSaveMethod"];
-            if (contactSaveMethodConfig.ToLower() == "both") contactSaveMethod = ContactSaveMethod.Both;
+            if (contactSaveMethodConfig.ToLower() == "all") contactSaveMethod = ContactSaveMethod.All;
             if (contactSaveMethodConfig.ToLower() == "powerbuilder") contactSaveMethod = ContactSaveMethod.PowerBuilder;
             if (contactSaveMethodConfig.ToLower() == "ozone") contactSaveMethod = ContactSaveMethod.Ozone;
+            if (contactSaveMethodConfig.ToLower() == "datascape") contactSaveMethod = ContactSaveMethod.Datascape;
             if (contactSaveMethodConfig.ToLower() == "none") contactSaveMethod = ContactSaveMethod.None;
 
         }

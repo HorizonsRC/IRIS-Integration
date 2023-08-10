@@ -41,3 +41,16 @@ D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS In
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.csprojResolveAssemblyReference.cache
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.dll
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.PowerBuilderContacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Contacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Debug\HRC.Framework.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Debug\HRC.PowerBuilderContacts.pdb

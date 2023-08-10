@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>\\irisdev\HRC\Contacts</_PublishTargetUrl>
+    <History>True|2023-08-10T01:32:43.3070439Z;True|2023-08-10T13:26:53.0860699+12:00;True|2023-08-10T12:46:14.6771803+12:00;True|2023-08-10T12:43:08.0711277+12:00;True|2023-08-10T12:38:47.1319207+12:00;True|2023-08-10T11:33:28.0120360+12:00;True|2023-08-10T06:57:02.2280401+12:00;True|2023-08-03T07:07:56.0695913+12:00;True|2023-08-02T11:55:53.1324136+12:00;True|2023-08-02T11:44:37.5141895+12:00;True|2023-07-27T11:51:20.7694168+12:00;True|2023-07-27T11:27:26.0950152+12:00;True|2023-07-27T10:43:34.6737689+12:00;True|2023-07-26T10:47:40.4107012+12:00;True|2023-07-25T08:48:24.3477742+12:00;True|2023-07-15T07:00:58.5090392+12:00;True|2023-07-04T08:04:38.9786671+12:00;True|2023-06-30T19:19:41.8195185+12:00;True|2023-06-30T18:36:03.7011876+12:00;True|2023-06-30T16:45:13.4856606+12:00;True|2023-06-30T16:34:17.0741785+12:00;True|2023-06-30T16:24:41.9154691+12:00;True|2023-06-30T09:45:32.8823466+12:00;True|2023-06-29T10:32:57.1693660+12:00;True|2023-06-28T22:54:22.9359460+12:00;True|2023-06-28T13:49:17.5126351+12:00;True|2023-06-28T13:30:56.9681261+12:00;True|2023-06-28T12:17:46.3176889+12:00;True|2023-06-27T20:28:52.0707234+12:00;True|2023-06-27T20:15:47.7143760+12:00;True|2023-06-27T20:06:53.4906101+12:00;True|2023-06-27T19:43:10.9974435+12:00;True|2023-06-27T19:25:21.9661903+12:00;True|2023-06-27T15:55:03.6172729+12:00;True|2023-06-27T15:19:06.1016481+12:00;True|2023-06-27T14:11:04.3215221+12:00;True|2023-06-23T10:27:20.9418291+12:00;True|2023-06-23T09:09:52.1682670+12:00;True|2023-06-21T15:16:11.3944728+12:00;True|2023-06-21T14:48:41.5676754+12:00;True|2023-06-21T14:02:37.0001725+12:00;True|2023-06-21T13:47:13.4045679+12:00;True|2023-06-21T11:36:45.3186187+12:00;True|2023-06-21T11:32:18.6132010+12:00;True|2023-06-21T11:23:21.7827565+12:00;True|2023-06-21T10:43:44.5709537+12:00;True|2023-06-21T10:05:02.2059888+12:00;True|2023-06-20T16:31:31.4455745+12:00;True|2023-06-20T13:48:12.2173084+12:00;True|2023-06-20T13:03:34.3711635+12:00;True|2023-06-20T11:54:05.9897159+12:00;True|2023-06-20T10:24:11.2735667+12:00;True|2023-06-20T09:55:33.8085132+12:00;True|2023-06-19T08:32:36.2586486+12:00;True|2023-06-16T12:46:52.5649057+12:00;True|2023-06-15T10:43:01.8927459+12:00;True|2023-06-15T10:05:31.6291624+12:00;True|2023-06-15T09:51:48.5457526+12:00;True|2023-06-15T09:11:13.5511338+12:00;True|2023-05-25T13:17:53.3716560+12:00;True|2023-05-25T07:54:43.3793623+12:00;True|2023-05-24T15:07:44.1661637+12:00;True|2023-05-24T14:50:09.9024668+12:00;True|2023-05-24T11:12:19.5231741+12:00;True|2023-05-24T11:00:30.6659619+12:00;True|2023-05-24T10:54:17.1560995+12:00;True|2023-05-24T10:33:06.4077400+12:00;True|2023-05-24T09:46:57.7913543+12:00;True|2023-05-24T09:40:56.9719762+12:00;True|2023-05-10T10:10:45.0817115+12:00;True|2023-05-10T10:00:45.6709632+12:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/ContactsIntegration.dll">
+      <publishTime>08/10/2023 13:32:40</publishTime>
+    </File>
+    <File Include="bin/ContactsIntegration.pdb">
+      <publishTime>08/10/2023 13:32:40</publishTime>
+    </File>
+    <File Include="bin/HRC.Common.dll">
+      <publishTime>06/23/2023 10:27:15</publishTime>
+    </File>
+    <File Include="bin/HRC.Common.pdb">
+      <publishTime>06/23/2023 10:27:15</publishTime>
+    </File>
+    <File Include="bin/HRC.Contacts.dll">
+      <publishTime>08/10/2023 06:56:57</publishTime>
+    </File>
+    <File Include="bin/HRC.Contacts.pdb">
+      <publishTime>08/10/2023 06:56:57</publishTime>
+    </File>
+    <File Include="bin/HRC.DatascapeContacts.dll">
+      <publishTime>08/10/2023 13:32:40</publishTime>
+    </File>
+    <File Include="bin/HRC.DatascapeContacts.dll.config">
+      <publishTime>05/02/2023 08:07:58</publishTime>
+    </File>
+    <File Include="bin/HRC.DatascapeContacts.pdb">
+      <publishTime>08/10/2023 13:32:40</publishTime>
+    </File>
+    <File Include="bin/HRC.Framework.dll">
+      <publishTime>08/10/2023 06:56:58</publishTime>
+    </File>
+    <File Include="bin/HRC.Framework.pdb">
+      <publishTime>08/10/2023 06:56:58</publishTime>
+    </File>
+    <File Include="bin/HRC.OzoneContacts.dll">
+      <publishTime>08/10/2023 06:56:58</publishTime>
+    </File>
+    <File Include="bin/HRC.OzoneContacts.dll.config">
+      <publishTime>04/27/2023 15:04:05</publishTime>
+    </File>
+    <File Include="bin/HRC.OzoneContacts.pdb">
+      <publishTime>08/10/2023 06:56:58</publishTime>
+    </File>
+    <File Include="bin/HRC.PowerBuilderContacts.dll">
+      <publishTime>08/10/2023 06:56:58</publishTime>
+    </File>
+    <File Include="bin/HRC.PowerBuilderContacts.pdb">
+      <publishTime>08/10/2023 06:56:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>10/19/2022 05:19:40</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/08/2023 20:09:56</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>04/10/2023 05:40:52</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>05/08/2022 15:31:02</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>05/15/2018 13:29:44</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>10/23/2021 12:40:18</publishTime>
+    </File>
+    <File Include="bin/System.Text.Encodings.Web.dll">
+      <publishTime>10/19/2022 05:31:48</publishTime>
+    </File>
+    <File Include="bin/System.Text.Json.dll">
+      <publishTime>01/20/2023 13:01:50</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.ValueTuple.dll">
+      <publishTime>05/15/2018 13:29:52</publishTime>
+    </File>
+    <File Include="BulkLoadService.svc">
+      <publishTime>11/11/2020 15:50:48</publishTime>
+    </File>
+    <File Include="ContactsIntegrationService.svc">
+      <publishTime>11/11/2020 15:50:48</publishTime>
+    </File>
+    <File Include="ContactsQueue.asmx">
+      <publishTime>11/11/2020 15:50:48</publishTime>
+    </File>
+    <File Include="ProcessContactsQueue.aspx">
+      <publishTime>11/11/2020 15:50:48</publishTime>
+    </File>
+    <File Include="Service References/ContactsService/ContactsIntegration.ContactsService.BulkLoadContactsOutcome.datasource">
+      <publishTime>04/28/2023 07:58:29</publishTime>
+    </File>
+    <File Include="Service References/ContactsService/ContactsIntegration.ContactsService.ContactDetails.datasource">
+      <publishTime>04/28/2023 07:58:29</publishTime>
+    </File>
+    <File Include="Service References/ContactsService/ContactsIntegration.ContactsService.ContactsCollection.datasource">
+      <publishTime>04/28/2023 07:58:29</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

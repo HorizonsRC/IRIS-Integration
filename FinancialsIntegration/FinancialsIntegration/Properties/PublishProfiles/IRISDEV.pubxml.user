@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <History>True|2023-07-12T04:56:51.2846962Z;True|2023-07-12T09:49:15.1009747+12:00;True|2023-07-12T09:47:50.5635242+12:00;False|2023-07-12T09:47:07.0008439+12:00;False|2023-07-12T09:46:33.3890370+12:00;True|2023-07-11T07:17:35.4169064+12:00;True|2023-07-07T12:07:04.5550093+12:00;True|2023-07-06T14:14:57.5814379+12:00;True|2023-07-06T14:02:44.7337955+12:00;True|2023-07-05T14:16:08.6440261+12:00;True|2023-07-05T13:36:19.5457042+12:00;True|2023-06-15T15:45:06.7121095+12:00;True|2023-06-14T15:46:25.6989414+12:00;True|2023-06-14T15:42:56.0688598+12:00;True|2023-06-14T15:27:07.9240624+12:00;True|2023-06-14T15:06:22.2275019+12:00;True|2023-06-14T14:52:02.2570997+12:00;True|2023-06-14T14:48:40.5733563+12:00;True|2023-05-23T15:56:42.1233301+12:00;True|2023-05-23T15:20:34.1349877+12:00;False|2023-05-23T15:19:41.5003529+12:00;</History>
+    <_PublishTargetUrl>\\irisdev\HRC\Financial</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/FinancialsIntegration.dll">
+      <publishTime>07/12/2023 16:56:48</publishTime>
+    </File>
+    <File Include="bin/FinancialsIntegration.pdb">
+      <publishTime>07/12/2023 16:56:48</publishTime>
+    </File>
+    <File Include="bin/HRC.Common.dll">
+      <publishTime>06/23/2023 10:27:15</publishTime>
+    </File>
+    <File Include="bin/HRC.Common.pdb">
+      <publishTime>06/23/2023 10:27:15</publishTime>
+    </File>
+    <File Include="bin/HRC.DatascapeFinancials.dll">
+      <publishTime>07/07/2023 12:07:01</publishTime>
+    </File>
+    <File Include="bin/HRC.DatascapeFinancials.dll.config">
+      <publishTime>06/13/2023 13:38:52</publishTime>
+    </File>
+    <File Include="bin/HRC.DatascapeFinancials.pdb">
+      <publishTime>07/07/2023 12:07:01</publishTime>
+    </File>
+    <File Include="bin/HRC.Framework.dll">
+      <publishTime>06/28/2023 22:54:19</publishTime>
+    </File>
+    <File Include="bin/HRC.Framework.pdb">
+      <publishTime>06/28/2023 22:54:19</publishTime>
+    </File>
+    <File Include="bin/HRC.IRIS.dll">
+      <publishTime>07/05/2023 13:34:32</publishTime>
+    </File>
+    <File Include="bin/HRC.IRIS.pdb">
+      <publishTime>07/05/2023 13:34:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>10/19/2022 05:19:40</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/08/2023 20:09:56</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>04/10/2023 05:40:52</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>05/08/2022 15:31:02</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>05/15/2018 13:29:44</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>10/23/2021 12:40:18</publishTime>
+    </File>
+    <File Include="bin/System.Text.Encodings.Web.dll">
+      <publishTime>10/19/2022 05:31:48</publishTime>
+    </File>
+    <File Include="bin/System.Text.Json.dll">
+      <publishTime>01/20/2023 13:01:50</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.ValueTuple.dll">
+      <publishTime>05/15/2018 13:29:52</publishTime>
+    </File>
+    <File Include="FinancialsIntegrationService.svc">
+      <publishTime>11/11/2020 15:50:50</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/12/2023 09:47:48</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

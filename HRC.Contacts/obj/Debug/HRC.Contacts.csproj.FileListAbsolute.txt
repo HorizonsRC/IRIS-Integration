@@ -34,3 +34,5 @@ C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\obj\Debug\HRC.Conta
 C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\obj\Debug\HRC.Contacts.csproj.CopyComplete
 C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\obj\Debug\HRC.Contacts.dll
 C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\obj\Debug\HRC.Contacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.Contacts\bin\Debug\Newtonsoft.Json.xml

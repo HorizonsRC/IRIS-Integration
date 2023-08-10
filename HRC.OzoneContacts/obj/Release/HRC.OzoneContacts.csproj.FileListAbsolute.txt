@@ -1,0 +1,14 @@
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\bin\Release\HRC.OzoneContacts.dll.config
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\bin\Release\HRC.OzoneContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\bin\Release\HRC.OzoneContacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\bin\Release\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\bin\Release\HRC.Contacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\bin\Release\HRC.Framework.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\bin\Release\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\bin\Release\HRC.Contacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\bin\Release\HRC.Framework.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\obj\Release\HRC.OzoneContacts.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\obj\Release\HRC.OzoneContacts.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\obj\Release\HRC.OzoneContacts.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\obj\Release\HRC.OzoneContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.OzoneContacts\obj\Release\HRC.OzoneContacts.pdb

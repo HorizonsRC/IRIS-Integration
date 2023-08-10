@@ -1,0 +1,9 @@
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\bin\Release\HRC.IRIS.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\bin\Release\HRC.IRIS.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\bin\Release\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\bin\Release\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Release\HRC.IRIS.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Release\HRC.IRIS.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Release\HRC.IRIS.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Release\HRC.IRIS.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.IRIS\obj\Release\HRC.IRIS.pdb

@@ -3,3 +3,17 @@ C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeCon
 C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.AssemblyInfoInputs.cache
 C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.AssemblyInfo.cs
 C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\bin\Debug\net7.0\HRC.DatascapeContacts.deps.json
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\bin\Debug\net7.0\HRC.DatascapeContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\bin\Debug\net7.0\HRC.DatascapeContacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\bin\Debug\net7.0\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\bin\Debug\net7.0\HRC.Contacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\bin\Debug\net7.0\HRC.Framework.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\bin\Debug\net7.0\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\bin\Debug\net7.0\HRC.Contacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\bin\Debug\net7.0\HRC.Framework.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\refint\HRC.DatascapeContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\HRC.DatascapeContacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\DatascapeContacts\obj\Debug\net7.0\ref\HRC.DatascapeContacts.dll

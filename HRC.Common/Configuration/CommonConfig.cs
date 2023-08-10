@@ -48,7 +48,7 @@ namespace HRC.Common.Configuration
             }
         }
         
-        [ConfigurationProperty(MailServerName, DefaultValue = "PNT-EX2.horizons.govt.nz", IsRequired = false)]
+        [ConfigurationProperty(MailServerName, DefaultValue = "mail.horizons.govt.nz", IsRequired = false)]
         public string MailServer
         {
             get

@@ -1,0 +1,13 @@
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Release\HRC.PowerBuilderContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Release\HRC.PowerBuilderContacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Release\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Release\HRC.Contacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Release\HRC.Framework.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Release\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Release\HRC.Contacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\bin\Release\HRC.Framework.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Release\HRC.PowerBuilderContacts.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Release\HRC.PowerBuilderContacts.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Release\HRC.PowerBuilderContacts.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Release\HRC.PowerBuilderContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\HRC.PowerBuilderContacts\obj\Release\HRC.PowerBuilderContacts.pdb

@@ -11,6 +11,7 @@ namespace HRC.Contacts.BL
         public string Surname { get; set; }
         public string Initials { get; set; }
         public string FirstName { get; set; }
+        public string MiddleName { get; set; } // Added for Datascape
         public string KnownBy { get; set; }
         public string Title { get; set; }
         

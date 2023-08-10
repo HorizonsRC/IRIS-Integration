@@ -46,3 +46,47 @@ E:\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csprojResolveAssemblyReference.cache
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.dll
 D:\Documents\Source Code\Visual Studio Projects\_Production Applications\IRIS Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csproj.AssemblyReference.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csproj.CoreCompileInputs.cache
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.dll.config
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\ContactsIntegration.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.DatascapeContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\Newtonsoft.Json.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Common.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Contacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.Framework.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.OzoneContacts.dll.config
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.PowerBuilderContacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.DatascapeContacts.pdb
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\Newtonsoft.Json.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\obj\Debug\ContactsIntegration.csproj.CopyComplete
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\RestSharp.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Text.Json.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Memory.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.ValueTuple.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Text.Encodings.Web.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Numerics.Vectors.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Buffers.dll
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\HRC.DatascapeContacts.dll.config
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\RestSharp.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Text.Json.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Memory.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.ValueTuple.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Text.Encodings.Web.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Numerics.Vectors.xml
+C:\Users\tpurdie\Documents\GIT\IRIS-Integration\ContactsIntegration\ContactsIntegration\bin\System.Buffers.xml

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using ContactsIntegration.ContactsService;
+
 using HRC.PowerBuilderContacts.BL;
 using HRC.Common;
 using HRC.Framework.BL;
 using HRC.Common.Validators;
 using HRC.Contacts.BL;
 using HRC.OzoneContacts.BL;
+using HRC.DatascapeContacts.BL;
 using System.Text.RegularExpressions;
 
 namespace ContactsIntegration.BL
@@ -116,6 +117,207 @@ namespace ContactsIntegration.BL
                 communication.IsWebsite = true;
                 contact.Communications.Add(communication);
             }
+
+            return contact;
+        }
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        public static DatascapeContact IRISContactToDatascapeContact(ContactDetails contactDetails)
+        {
+            ContactType contactType = contactDetails.ContactType.ToUpper().Equals("PERSON") ? ContactType.Person : ContactType.Organization;
+            DatascapeContact contact = new DatascapeContact(contactType);
+            contact.IrisContactId = contactDetails.ContactID;
+
+
+            if (contact.ContactType == ContactType.Person)
+            {
+                contact.Person = new DatascapePerson();
+                bool active = false;
+                contact.Person.Base = MapCommonPerson(contactDetails, ref active, "Datascape");
+                contact.Person.DateOfBirth = contactDetails.ContactPersonDetails.PersonDateOfBirth;
+                contact.Person.Confidential = string.IsNullOrEmpty(contactDetails.ContactPersonDetails.ConfidentialReason) ? false : true;
+                contact.Person.Base.SourceId = contactDetails.ContactID;
+                // May need to map title further: contact.Person.Base.Title = 
+                contact.Person.Base.Gender = contactDetails.ContactPersonDetails.PersonGender == "X"? "Non Binary" : contactDetails.ContactPersonDetails.PersonGender;
+
+
+                contact.Person.Aliases = new List<DatascapeAlias>();
+                if(contactDetails.ContactNames.Count() > 1)
+                {
+                    foreach (ContactName name in contactDetails.ContactNames
+                        .Where(n => n.ContactPersonName.PersonFirstName != contact.Person.Base.FirstName || n.ContactPersonName.PersonLastName != contact.Person.Base.Surname).ToList())
+                    {
+                        DatascapeAlias alias = new DatascapeAlias();
+                        alias.SourceID = name.ContactNameID;
+                        alias.Name = $"{name.ContactPersonName.PersonFirstName} {name.ContactPersonName.PersonLastName}";
+
+                        contact.Person.Aliases.Add(alias);
+                    }
+                }
+                
+            }
+            else
+            {
+                contact.Organisation = new DatascapeOrganisation();
+                bool active = false;
+                contact.Organisation.Base = MapCommonOrganization(contactDetails, ref active);
+
+                contact.Organisation.OrganisationRegistrationNumber = contactDetails.ContactOrganisationDetails.OrganisationCompanyNumber?.ToString() ?? null;
+                ContactName TradingAs = contactDetails.ContactNames.FirstOrDefault(n => n.NameType == "Trading as");
+                if (TradingAs?.ContactOrganisationName.OrganisationName != null & TradingAs?.ContactOrganisationName.OrganisationName != (contact.Organisation.Base.Name + contact.Organisation.Base.Division))
+                {
+                    contact.Organisation.TradingAs = $"{TradingAs.ContactOrganisationName.OrganisationName} {TradingAs.ContactOrganisationName.OrganisationDivisionName}";
+                }
+                else
+                {
+                    contact.Organisation.TradingAs = "";
+                }
+                contact.Organisation.OrganisationRegistrationNumber = contactDetails.ContactOrganisationDetails.OrganisationCompanyNumber?.ToString() ?? "";
+            }
+
+            contact.WebsiteURL = contactDetails.ContactWebsites.Where(e => e.IsPreferred = true).FirstOrDefault()?.URL ?? "";
+
+            contact.Addresses = new List<DatascapeAddress>();
+            foreach (ContactAddress contactAddress in contactDetails.ContactAddresses)
+            {
+                DatascapeAddress address = new DatascapeAddress();
+                address.Base = MapCommonAddress(contactAddress, "Datascape");
+
+                address.Country = contactAddress.ContactOverseasAddress?.Country ?? "NEW ZEALAND";
+
+                switch (address.Country)
+                {
+                    case "BOLIVIA":
+                        address.Country = "BOLIVIA(PLURINATIONAL STATE OF)";
+                        break;
+                    case "CAPE VERDE":
+                        break;
+                    case "CHINA MACAO SPECIAL REGION":
+                        break;
+                    case "CZECH REPUBLIC":
+                        break;
+                    case "FALKLAND ISLANDS":
+                        break;
+                    case "GUERNSEY":
+                        break;
+                    case "HONG KONG":
+                        address.Country = "CHINA, HONG KONG SPECIAL ADMINISTRATIVE REGION";
+                        break;
+                    case "IRAN":
+                        break;
+                    case "MACEDONIA":
+                        break;
+                    case "MICRONESIA":
+                        break;
+                    case "NORTH KOREA":
+                        break;
+                    case "PALESTINE":
+                        break;
+                    case "SAINT-MARTIN":
+                        break;
+                    case "SINT MAARTEN":
+                        break;
+                    case "SOUTH KOREA":
+                        break;
+                    case "SWAZILAND":
+                        break;
+                    case "SYRIA":
+                        break;
+                    case "TANZANIA":
+                        break;
+                    case "UNITED KINGDOM":
+                        address.Country = "UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND";
+                            break;
+                    case "VATICAN CITY":
+                        break;
+                    case "VENEZUELA":
+                        break;
+                }
+
+                contact.Addresses.Add(address);     
+            }
+            contact.ManageAddressDuplicates();
+
+            contact.Communications = new List<DatascapeCommunication>();
+
+            foreach (ContactPhoneNumber phone in contactDetails.ContactPhoneNumbers)
+            {
+                DatascapeCommunication communication = new DatascapeCommunication();
+                communication.Base = MapCommonPhone(phone, ContactSaveMethod.Datascape);
+                communication.IsPhone = true;
+                if (phone.IsPreferred)
+                {
+                    communication.Base.PrimaryFlag = true;
+                }
+                switch (phone.Type.ToLower())
+                { 
+                    case "accounts":
+                    case "business":
+                    case "customer services":
+                    case "dispatch":
+                    case "main office":
+                    case "pager":
+                        communication.Base.CommunicationType = "Work";
+                        break;
+                    case "after hours":
+                    case "home":
+                        communication.Base.CommunicationType = "Home";
+                        break;
+                    case "fax":
+                        communication.Base.CommunicationType = "Fax";
+                        break;
+                    case "horizons mobile":
+                    case "mobile (business)":
+                    case "mobile (personal)":
+                        communication.Base.CommunicationType = "Mobile";
+                        break;
+                    case "emergency":
+                        communication.Base.CommunicationType = "Emergency";
+                        //if (phone.Number.StartsWith("02"))
+                        //{
+                        //    communication.Base.CommunicationType = "Mobile";
+                        //}
+                        //else if (contact.ContactType == ContactType.Person)
+                        //{
+                        //    communication.Base.CommunicationType = "Home";
+                        //}
+                        //else if (contact.ContactType == ContactType.Organization)
+                        //{
+                        //    communication.Base.CommunicationType = "Work";
+                        //}
+                        break;
+                    default:
+                        break;
+                }
+                if(communication.Base.CommunicationType != "Emergency")
+                {
+                    contact.Communications.Add(communication);
+                }
+                
+            }
+
+            foreach (ContactEmail email in contactDetails.ContactEmails)
+            {
+                DatascapeCommunication communication = new DatascapeCommunication();
+                communication.Base = MapCommonEmail(email);
+                communication.IsEmail = true;
+                communication.EmailIsBilling = email.IsBilling;
+                if (email.IsPreferred)
+                {
+                    communication.Base.PrimaryFlag = true;
+                }
+                contact.Communications.Add(communication);
+
+            }
+            if (contact.ContactType == ContactType.Person) {
+                contact.Person.CorrespondenceMethod = contact.Addresses.Any() ? "20" : "10";
+                contact.Person.InteractionMethod = contactDetails.ContactEmails.Any(email => email.IsCurrent) ? "10" : contact.Communications.Where(c => c.IsPhone == true).Any() ? "30" : "20";
+            }
+            else
+            {
+                contact.Organisation.CorrespondenceMethod = contact.Addresses.Any() ? "20" : "10";
+                contact.Organisation.InteractionMethod = contactDetails.ContactEmails.Any(email => email.IsCurrent) ? "10" : contact.Communications.Where(c => c.IsPhone == true).Any() ? "30" : "20";
+            }
+            
 
             return contact;
         }
@@ -268,7 +470,7 @@ namespace ContactsIntegration.BL
             return contact;
         }
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        private static Person MapCommonPerson(ContactDetails contactDetails, ref bool active)
+        private static Person MapCommonPerson(ContactDetails contactDetails, ref bool active, string SyncType="")
         {
             Person person = new Person();
             ContactName contactName=null;
@@ -288,10 +490,11 @@ namespace ContactsIntegration.BL
             if (contactName != null)
             {
                 
-                person.FirstName = (contactName.ContactPersonName.PersonFirstName + " " + contactName.ContactPersonName.PersonMiddleNames).Truncate(50);
+                person.FirstName = contactName.ContactPersonName.PersonFirstName.Truncate(50); // removed middle name for Datascape
                 person.Surname = contactName.ContactPersonName.PersonLastName.Truncate(50);
+                person.MiddleName = contactName.ContactPersonName.PersonMiddleNames.Truncate(50); //Added for Datascape
                 person.Initials = getInitials(contactName.ContactPersonName.PersonFirstName, contactName.ContactPersonName.PersonMiddleNames);
-                person.Title = contactName.ContactPersonName.PersonTitle.Truncate(10);
+                person.Title = (SyncType == "Datascape") ? contactName.ContactPersonName.PersonTitle : contactName.ContactPersonName.PersonTitle.Truncate(10);
                 person.Gender = contactDetails.ContactPersonDetails.PersonGender.Truncate(1);
 
                 person.SourceId = contactDetails.ContactID;
@@ -376,17 +579,26 @@ namespace ContactsIntegration.BL
                     contactAddress.ContactUrbanRuralAddress.StreetName.SafeTrimOrEmpty(),
                     contactAddress.ContactUrbanRuralAddress.StreetDirection.SafeTrimOrEmpty()).SafeTrimOrEmpty();
 
-                int ruralId;
-                if (int.TryParse(contactAddress.ContactUrbanRuralAddress.RuralDeliveryIdentifier, out ruralId))
+                if (syncType == "Datascape")
                 {
-                    address.AddressNumberText = ruralId.ToString();
-                    address.AddressTypeEnum = AddressType.Rural;                    
+                    address.AddressNumberText = contactAddress.ContactUrbanRuralAddress.StreetNumber.ToString();
+                    address.RuralDeliveryNumber = contactAddress.ContactUrbanRuralAddress.RuralDeliveryIdentifier;
+                    address.AddressTypeEnum = String.IsNullOrEmpty(contactAddress.ContactUrbanRuralAddress.RuralDeliveryIdentifier) ? AddressType.Street : AddressType.Rural;
                 }
-                else
-                {
-                    int? streetNumber = contactAddress.ContactUrbanRuralAddress.StreetNumber;
-                    address.AddressNumberText = (streetNumber.HasValue ? streetNumber.Value.ToString() : string.Empty) + contactAddress.ContactUrbanRuralAddress.StreetAlpha;                    
-                    address.AddressTypeEnum = AddressType.Street;
+                else 
+                { 
+                    int ruralId;
+                    if (int.TryParse(contactAddress.ContactUrbanRuralAddress.RuralDeliveryIdentifier, out ruralId))
+                    {
+                        address.AddressNumberText = ruralId.ToString();
+                        address.AddressTypeEnum = AddressType.Rural;                    
+                    }
+                    else
+                    {
+                        int? streetNumber = contactAddress.ContactUrbanRuralAddress.StreetNumber;
+                        address.AddressNumberText = (streetNumber.HasValue ? streetNumber.Value.ToString() : string.Empty) + contactAddress.ContactUrbanRuralAddress.StreetAlpha;                    
+                        address.AddressTypeEnum = AddressType.Street;
+                    }
                 }
                 address.StreetAlpha = contactAddress.ContactUrbanRuralAddress.StreetAlpha;
 
@@ -522,7 +734,6 @@ namespace ContactsIntegration.BL
             if (addressLines.Count > 3) address.AddressLine4 = addressLines[3];
             if (addressLines.Count > 4) address.AddressLine5 = addressLines[4];
             if (addressLines.Count > 5 && syncType == "Ozone") address.AddressLine6 = addressLines[5];
-            
            
             return address;
         }
@@ -549,6 +760,7 @@ namespace ContactsIntegration.BL
             communication.CommunicationType = email.Type;
             communication.Comments = email.Comment;
             communication.Email = email.Value;
+            communication.IsCurrent = email.IsCurrent;
             return communication;
         }
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -673,5 +885,22 @@ namespace ContactsIntegration.BL
             return communication;
         }
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        private static Communication MapCommonPhone(ContactPhoneNumber phone, ContactSaveMethod saveMethod)
+        {
+            Communication communication = new Communication();
+            if (saveMethod == ContactSaveMethod.Datascape)
+            {
+
+                communication.SourceId = phone.ContactPhoneNumberID;
+                communication.BasicCommunicationType = "phone";
+                communication.Extension = phone.Extension.SafeTrimOrEmpty();
+                if (string.IsNullOrEmpty(phone.CountryCode)) { phone.CountryCode = "0064"; }
+                communication.CountryCode = phone.CountryCode;
+                communication.AreaCode = "";                        //Default area code
+                communication.Number = phone.Number;                //Default phone number
+
+            }
+            return communication;
+        }
     }
 }

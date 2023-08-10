@@ -9,6 +9,9 @@ namespace HRC.DatascapeContacts.BL
 {
     public class DatascapeContact : Contact
     {
+        public DatascapePerson Person { get; set; }
+        public DatascapeOrganisation Organisation { get; set; }
         public List<DatascapeAddress> Addresses { get; set; }   
+        public List<DatascapeCommunication> Communications { get; set; }
     }
 }
