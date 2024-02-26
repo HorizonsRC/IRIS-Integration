@@ -16,3 +16,4 @@ ContactsIntegration/ContactsIntegration/obj/Debug/DesignTimeResolveAssemblyRefer
 *.dll
 *.pdb
 *.exe
+*.vsidx
